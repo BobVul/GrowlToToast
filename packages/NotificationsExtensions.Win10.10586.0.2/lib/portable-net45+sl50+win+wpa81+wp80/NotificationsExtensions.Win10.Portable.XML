@@ -1,0 +1,1550 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NotificationsExtensions.Win10.Portable</name>
+    </assembly>
+    <members>
+        <member name="T:NotificationsExtensions.Badges.BadgeGlyphNotificationContent">
+            <summary>
+            Notification content object to display a glyph on a tile's badge.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeGlyphNotificationContent.#ctor">
+            <summary>
+            Default constructor to create a glyph badge content object.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeGlyphNotificationContent.#ctor(NotificationsExtensions.Badges.GlyphValue)">
+            <summary>
+            Constructor to create a glyph badge content object with a glyph.
+            </summary>
+            <param name="glyph">The glyph to be displayed on the badge.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Badges.BadgeGlyphNotificationContent.Glyph">
+            <summary>
+            The glyph to be displayed on the badge.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeGlyphNotificationContent.GetContent">
+            <summary>
+            Retrieves the notification Xml content as a string.
+            </summary>
+            <returns>The notification Xml content as a string.</returns>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeGlyphNotificationContent.ToString">
+            <summary>
+            Retrieves the notification XML content as a string.
+            </summary>
+            <returns>The notification XML content as a string.</returns>
+        </member>
+        <member name="T:NotificationsExtensions.Badges.BadgeNumericNotificationContent">
+            <summary>
+            Notification content object to display a number on a tile's badge.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeNumericNotificationContent.#ctor">
+            <summary>
+            Default constructor to create a numeric badge content object.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeNumericNotificationContent.#ctor(System.UInt32)">
+            <summary>
+            Constructor to create a numeric badge content object with a number.
+            </summary>
+            <param name="number">
+            The number that will appear on the badge.  If the number is 0, the badge
+            will be removed.
+            </param>
+        </member>
+        <member name="P:NotificationsExtensions.Badges.BadgeNumericNotificationContent.Number">
+            <summary>
+            The number that will appear on the badge.  If the number is 0, the badge
+            will be removed.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeNumericNotificationContent.GetContent">
+            <summary>
+            Retrieves the notification Xml content as a string.
+            </summary>
+            <returns>The notification Xml content as a string.</returns>
+        </member>
+        <member name="M:NotificationsExtensions.Badges.BadgeNumericNotificationContent.ToString">
+            <summary>
+            Retrieves the notification Xml content as a string.
+            </summary>
+            <returns>The notification Xml content as a string.</returns>
+        </member>
+        <member name="T:NotificationsExtensions.Badges.GlyphValue">
+            <summary>
+            The types of glyphs that can be placed on a badge.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.None">
+            <summary>
+            No glyph.  If there is a numeric badge, or a glyph currently on the badge,
+            it will be removed.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Activity">
+            <summary>
+            A glyph representing application activity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Alert">
+            <summary>
+            A glyph representing an alert.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Alarm">
+            <summary>
+            A glyph representing an alarm.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Available">
+            <summary>
+            A glyph representing availability status.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Away">
+            <summary>
+            A glyph representing away status
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Busy">
+            <summary>
+            A glyph representing busy status.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.NewMessage">
+            <summary>
+            A glyph representing that a new message is available.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Paused">
+            <summary>
+            A glyph representing that media is paused.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Playing">
+            <summary>
+            A glyph representing that media is playing.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Unavailable">
+            <summary>
+            A glyph representing unavailable status.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Error">
+            <summary>
+            A glyph representing an error.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Badges.GlyphValue.Attention">
+            <summary>
+            A glyph representing attention status.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.NotificationXmlContentAttribute">
+            <summary>
+            This attribute should be specified at most one time on an Element class. The property's value will be written as a string in the element's body.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.NotificationContentValidationException">
+            <summary>
+            Exception returned when invalid notification content is provided.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.BaseElement.GetContent">
+            <summary>
+            Retrieves the notification XML content as a string.
+            </summary>
+            <returns>The notification XML content as a string.</returns>
+        </member>
+        <member name="T:NotificationsExtensions.INotificationContent">
+            <summary>
+            Base notification content interface to retrieve notification Xml as a string.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.INotificationContent.GetContent">
+            <summary>
+            Retrieves the notification Xml content as a string.
+            </summary>
+            <returns>The notification Xml content as a string.</returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileTextStacking">
+            <summary>
+            TextStacking specifies the vertical alignment of content.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStacking.Top">
+            <summary>
+            Vertical align to the top.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStacking.Center">
+            <summary>
+            Vertical align to the center.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStacking.Bottom">
+            <summary>
+            Vertical align to the bottom.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBindingContentAdaptive">
+            <summary>
+            Supported on all sizes. This is the recommended way of specifying your Tile content. Adaptive Tile templates are the de-facto choice for Windows 10, and you can create a wide variety of custom Tiles through adaptive.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBindingContentAdaptive.#ctor">
+            <summary>
+            Supported on all sizes. This is the recommended way of specifying your Tile content. Adaptive Tile templates are the de-facto choice for Windows 10, and you can create a wide variety of custom Tiles through adaptive.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentAdaptive.Children">
+            <summary>
+            <see cref="T:NotificationsExtensions.Tiles.TileText"/>, <see cref="T:NotificationsExtensions.Tiles.TileImage"/>, and <see cref="T:NotificationsExtensions.Tiles.TileGroup"/> objects can be added as children. The children are displayed in a vertical StackPanel fashion.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentAdaptive.BackgroundImage">
+            <summary>
+            An optional background image that gets displayed behind all the tile content, full bleed.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentAdaptive.PeekImage">
+            <summary>
+            An optional peek image that animates in from the top of the tile.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentAdaptive.TextStacking">
+            <summary>
+            Controls the text stacking (vertical alignment) of the entire binding element.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.ITileAdaptiveChild">
+            <summary>
+            Elements (<see cref="T:NotificationsExtensions.Tiles.TileText"/>, <see cref="T:NotificationsExtensions.Tiles.TileImage"/>, <see cref="T:NotificationsExtensions.Tiles.TileGroup"/>) that can be direct children of <see cref="T:NotificationsExtensions.Tiles.TileBindingContentAdaptive"/>.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileGroup">
+            <summary>
+            Groups semantically identify that the content in the group must either be displayed as a whole, or not displayed if it cannot fit. Groups also allow creating multiple columns.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileGroup.#ctor">
+            <summary>
+            Initializes a new tile group. Groups semantically identify that the content in the group must either be displayed as a whole, or not displayed if it cannot fit. Groups also allow creating multiple columns.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileGroup.Children">
+            <summary>
+            The only valid children of groups are <see cref="T:NotificationsExtensions.Tiles.TileSubgroup"/>. Each subgroup is displayed as a separate vertical column.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileImage">
+            <summary>
+            An inline image to be displayed on the tile.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileImage.#ctor">
+            <summary>
+            Initializes a new inline image that can be displayed on a tile.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImage.Source">
+            <summary>
+            Provide the source of the image and other image source related properties.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImage.Crop">
+            <summary>
+            Control the desired cropping of the image.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImage.RemoveMargin">
+            <summary>
+            By default, images have an 8px margin around them. You can remove this margin by setting this property to true.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImage.Align">
+            <summary>
+            The horizontal alignment of the image.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileImage.ToString">
+            <summary>
+            Returns the image's source string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TilePeekImage">
+            <summary>
+            A peek image that animates in from the top of the tile.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TilePeekImage.#ctor">
+            <summary>
+            Initializes a peek image that animates in from the top of the tile.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TilePeekImage.Source">
+            <summary>
+            Provide the source of the image and other image source related properties.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TilePeekImage.Overlay">
+            <summary>
+            New in 1511: A black overlay on the peek image. This value controls the opacity of the black overlay, with 0 being no overlay and 100 being completely black. Defaults to 0.
+            Previously for RTM: Did not exist, value will be ignored and peek image will be displayed with 0 overlay.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TilePeekImage.Crop">
+            <summary>
+            New in 1511: Control the desired cropping of the image.
+            Previously for RTM: Did not exist, value will be ignored and peek image will be displayed without any cropping.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBackgroundImage">
+            <summary>
+            A full-bleed background image that appears beneath the tile content.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBackgroundImage.#ctor">
+            <summary>
+            Initializes a full-bleed background image that appears beneath the tile content.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBackgroundImage.Source">
+            <summary>
+            Provide the source of the image and other image source related properties.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBackgroundImage.Overlay">
+            <summary>
+            A black overlay on the background image. This value controls the opacity of the black overlay, with 0 being no overlay and 100 being completely black. Defaults to 20.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBackgroundImage.Crop">
+            <summary>
+            New in 1511: Control the desired cropping of the image.
+            Previously for RTM: Did not exist, value will be ignored and peek image will be displayed without any cropping.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileImageAlign">
+            <summary>
+            Specifies the horizontal alignment for an image.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileImageAlign.Stretch">
+            <summary>
+            Default value. Image stretches to fill available width (and potentially available height too, depending on where the image is).
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileImageAlign.Left">
+            <summary>
+            Align the image to the left, displaying the image at its native resolution.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileImageAlign.Center">
+            <summary>
+            Align the image in the center horizontally, displaying the image at its native resolution.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileImageAlign.Right">
+            <summary>
+            Align the image to the right, displaying the image at its native resolution.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileImageCrop">
+            <summary>
+            Specify the desired cropping of the image.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileImageCrop.None">
+            <summary>
+            Default value. Image is not cropped.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileImageCrop.Circle">
+            <summary>
+            Image is cropped to a circle shape.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileSubgroup">
+            <summary>
+            Subgroups are vertical columns that can contain text and images.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileSubgroup.#ctor">
+            <summary>
+            Initializes a new subgroup. Subgroups are vertical columns that can contain text and images.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileSubgroup.Children">
+            <summary>
+            <see cref="T:NotificationsExtensions.Tiles.TileText"/> and <see cref="T:NotificationsExtensions.Tiles.TileImage"/> are valid children of subgroups.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileSubgroup.Weight">
+            <summary>
+            Control the width of this subgroup column by specifying the weight, relative to the other subgroups.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileSubgroup.TextStacking">
+            <summary>
+            Control the vertical alignment of this subgroup's content.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.ITileSubgroupChild">
+            <summary>
+            Elements (<see cref="T:NotificationsExtensions.Tiles.TileText"/>, <see cref="T:NotificationsExtensions.Tiles.TileImage"/>) that can be direct children of a <see cref="T:NotificationsExtensions.Tiles.TileSubgroup"/>.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileText">
+            <summary>
+            An adaptive text element.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileText.#ctor">
+            <summary>
+            Initializes a new adaptive text element.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.Text">
+            <summary>
+            The text to display.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.Lang">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". The locale specified here overrides any other specified locale, such as that in binding or visual. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.Style">
+            <summary>
+            The style controls the text's font size, weight, and opacity.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.Wrap">
+            <summary>
+            Set this to true to enable text wrapping. False by default.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.MaxLines">
+            <summary>
+            The maximum number of lines the text element is allowed to display.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.MinLines">
+            <summary>
+            The minimum number of lines the text element must display.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileText.Align">
+            <summary>
+            The horizontal alignment of the text.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileText.ToString">
+            <summary>
+            Returns the value of the Text property.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileTextAlign">
+            <summary>
+            Controls the horizontal alignment of text.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextAlign.Auto">
+            <summary>
+            Default value. The system automatically decides the alignment based on the language and culture.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextAlign.Left">
+            <summary>
+            Horizontally align the text to the left.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextAlign.Center">
+            <summary>
+            Horizontally align the text in the center.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextAlign.Right">
+            <summary>
+            Horizontally align the text to the right.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileTextStyle">
+            <summary>
+            Text style controls font size, weight, and opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Caption">
+            <summary>
+            Default value. Paragraph font size, normal weight and opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.CaptionSubtle">
+            <summary>
+            Same as Caption but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Body">
+            <summary>
+            H5 font size.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.BodySubtle">
+            <summary>
+            Same as Body but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Base">
+            <summary>
+            H5 font size, bold weight. Essentially the bold version of Body.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.BaseSubtle">
+            <summary>
+            Same as Base but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Subtitle">
+            <summary>
+            H4 font size.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.SubtitleSubtle">
+            <summary>
+            Same as Subtitle but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Title">
+            <summary>
+            H3 font size.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.TitleSubtle">
+            <summary>
+            Same as Title but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.TitleNumeral">
+            <summary>
+            Same as Title but with top/bottom padding removed.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Subheader">
+            <summary>
+            H2 font size.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.SubheaderSubtle">
+            <summary>
+            Same as Subheader but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.SubheaderNumeral">
+            <summary>
+            Same as Subheader but with top/bottom padding removed.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.Header">
+            <summary>
+            H1 font size.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.HeaderSubtle">
+            <summary>
+            Same as Header but with subtle opacity.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileTextStyle.HeaderNumeral">
+            <summary>
+            Same as Header but with top/bottom padding removed.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.Element_TileBinding.AddImageQuery">
+            <summary>
+            Set to true to allow Windows to append a query string to the image URI supplied in the tile notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language; for instance, a value of
+            
+            "www.website.com/images/hello.png"
+            
+            included in the notification becomes
+            
+            "www.website.com/images/hello.png?ms-scale=100&amp;ms-contrast=standard&amp;ms-lang=en-us"
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.Element_TileBinding.BaseUri">
+            <summary>
+            A default base URI that is combined with relative URIs in image source attributes.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.Element_TileBinding.Branding">
+            <summary>
+            The form that the tile should use to display the app's brand.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.Element_TileBinding.ContentId">
+            <summary>
+            Set to a sender-defined string that uniquely identifies the content of the notification. This prevents duplicates in the situation where a large tile template is displaying the last three wide tile notifications.
+            
+            Required: NO
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.Element_TileBinding.DisplayName">
+            <summary>
+            An optional string to override the tile's display name while showing this notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.Element_TileBinding.Language">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". The locale specified here overrides that in visual, but can be overriden by that in text. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string. See Remarks for when this value isn't specified.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.Element_TileBinding.CheckOverlayValue(System.Int32)">
+            <summary>
+            Throws exception if value is invalid
+            </summary>
+            <param name="value">Overlay value (0-100)</param>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.Element_TileBinding.Descendants">
+            <summary>
+            Generates an enumerable collection of children and all those children's children
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBindingContentContact">
+            <summary>
+            Phone-only. Supported on Small, Medium, and Wide.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBindingContentContact.#ctor">
+            <summary>
+            Phone-only. Supported on Small, Medium, and Wide.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentContact.Image">
+            <summary>
+            The image to display.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentContact.Text">
+            <summary>
+            NOT DISPLAYED ON SMALL TILE SIZE. A line of text that is displayed.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBindingContentIconic">
+            <summary>
+            Supported on Small and Medium. Enables an iconic tile template, where you can have an icon and badge display next to each other on the tile, in true classic Windows Phone style. The number next to the icon is achieved through a separate badge notification.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBindingContentIconic.#ctor">
+            <summary>
+            Supported on Small and Medium. Enables an iconic tile template, where you can have an icon and badge display next to each other on the tile, in true classic Windows Phone style. The number next to the icon is achieved through a separate badge notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentIconic.Icon">
+            <summary>
+            At minimum, to support both Desktop and Phone, Small and Medium tiles, provide a square aspect ratio image with a resolution of 200x200, PNG format, with transparency and no color other than white. For more info see: http://blogs.msdn.com/b/tiles_and_toasts/archive/2015/07/31/iconic-tile-template-for-windows-10.aspx
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBindingContentPeople">
+            <summary>
+            New in 1511: Supported on Medium, Wide, and Large (Desktop and Mobile).
+            Previously for RTM: Phone-only. Supported on Medium and Wide.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBindingContentPeople.#ctor">
+            <summary>
+            New in 1511: Supported on Medium, Wide, and Large (Desktop and Mobile).
+            Previously for RTM: Phone-only. Supported on Medium and Wide.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentPeople.Images">
+            <summary>
+            Images that will roll around as circles.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBindingContentPhotos">
+            <summary>
+            Animates through a slideshow of photos. Supported on all sizes.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBindingContentPhotos.#ctor">
+            <summary>
+            Animates through a slideshow of photos. Supported on all sizes.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBindingContentPhotos.Images">
+            <summary>
+            Up to 9 images can be provided, which will be used for the slideshow. Adding more than 9 will throw an exception.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBasicText">
+            <summary>
+            A text element on the tile.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBasicText.Text">
+            <summary>
+            The text value that will be shown in the text field.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBasicText.Lang">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". The locale specified here overrides any other specified locale, such as that in binding or visual. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBasicText.ToString">
+            <summary>
+            Returns the Text property value.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBinding">
+            <summary>
+            The binding element contains the visual content for a specific tile size.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileBinding.#ctor">
+            <summary>
+            Initializes a binding element, which contains the visual content for a specific tile size.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.Language">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". The locale specified here overrides that in visual, but can be overriden by that in text. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string. See Remarks for when this value isn't specified.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.BaseUri">
+            <summary>
+            A default base URI that is combined with relative URIs in image source attributes. Defaults to null.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.Branding">
+            <summary>
+            The form that the tile should use to display the app's brand..
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.AddImageQuery">
+            <summary>
+            Defaults to false. Set to true to allow Windows to append a query string to the image URI supplied in the tile notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language; for instance, a value of
+            
+            "www.website.com/images/hello.png"
+            
+            included in the notification becomes
+            
+            "www.website.com/images/hello.png?ms-scale=100&amp;ms-contrast=standard&amp;ms-lang=en-us"
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.ContentId">
+            <summary>
+            Set to a sender-defined string that uniquely identifies the content of the notification. This prevents duplicates in the situation where a large tile template is displaying the last three wide tile notifications.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.DisplayName">
+            <summary>
+            An optional string to override the tile's display name while showing this notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileBinding.Content">
+            <summary>
+            The actual content to be displayed. One of <see cref="T:NotificationsExtensions.Tiles.TileBindingContentAdaptive"/>, <see cref="T:NotificationsExtensions.Tiles.TileBindingContentIconic"/>, <see cref="T:NotificationsExtensions.Tiles.TileBindingContentContact"/>, <see cref="T:NotificationsExtensions.Tiles.TileBindingContentPeople"/>, or <see cref="T:NotificationsExtensions.Tiles.TileBindingContentPhotos"/>
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.ITileBindingContent">
+            <summary>
+            Visual tile content. One of <see cref="T:NotificationsExtensions.Tiles.TileBindingContentAdaptive"/>, <see cref="T:NotificationsExtensions.Tiles.TileBindingContentIconic"/>, <see cref="T:NotificationsExtensions.Tiles.TileBindingContentPhotos"/>, <see cref="T:NotificationsExtensions.Tiles.TileBindingContentPeople"/>, or <see cref="T:NotificationsExtensions.Tiles.TileBindingContentContact"/>.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileBranding">
+            <summary>
+            The form that the tile should use to display the app's brand.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileBranding.Auto">
+            <summary>
+            The default choice. If ShowNameOn___ is true for the tile size being displayed, then branding will be "Name". Otherwise it will be "None".
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileBranding.None">
+            <summary>
+            No branding will be displayed.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileBranding.Name">
+            <summary>
+            The DisplayName will be shown.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileBranding.Logo">
+            <summary>
+            Desktop-only. The Square44x44Logo will be shown. On Mobile, this will fallback to Name.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Tiles.TileBranding.NameAndLogo">
+            <summary>
+            Desktop-only. Both the DisplayName and Square44x44Logo will be shown. On Mobile, this will fallback to Name.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileContent">
+            <summary>
+            Base tile element, which contains a single visual element.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileContent.#ctor">
+            <summary>
+            Initializes a new instance of a tile notification's content. You must then set the Visual property, which is required for a tile notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileContent.Visual">
+            <summary>
+            The visual element is required.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileContent.GetContent">
+            <summary>
+            Retrieves the notification XML content as a string, so that it can be sent with a HTTP POST in a push notification.
+            </summary>
+            <returns>The notification XML content as a string.</returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileImageSource">
+            <summary>
+            Defines a tile image source and related properties.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileImageSource.#ctor(System.String)">
+            <summary>
+            Constructs an image source with all the required properties.
+            </summary>
+            <param name="src">The URI of the image source. Can be from your application package, application data, or the internet.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImageSource.Src">
+            <summary>
+            The URI of the image source. Can be from your application package, application data, or the internet.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImageSource.Alt">
+            <summary>
+            A description of the image, for users of assistive technologies.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileImageSource.AddImageQuery">
+            <summary>
+            Set to true to allow Windows to append a query string to the image URI supplied in the tile notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileImageSource.ToString">
+            <summary>
+            Returns the value of the Src property.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Tiles.TileVisual">
+            <summary>
+            Contains multiple binding child elements, each of which defines a tile.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileVisual.#ctor">
+            <summary>
+            Initializes a tile notification's visual element, which can contain multiple tile size bindings, each defining the visuals for a specific tile size.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.Version">
+            <summary>
+            The version of the tile XML schema this particular payload was developed for. Windows 10 ignores this property.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.Language">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". This locale is overridden by any locale specified in binding or text. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.BaseUri">
+            <summary>
+            A default base URI that is combined with relative URIs in image source attributes.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.Branding">
+            <summary>
+            The form that the tile should use to display the app's brand.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.AddImageQuery">
+            <summary>
+            Defaults to false. Set to true to allow Windows to append a query string to the image URI supplied in the tile notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language; for instance, a value of
+            
+            "www.website.com/images/hello.png"
+            
+            included in the notification becomes
+            
+            "www.website.com/images/hello.png?ms-scale=100&amp;ms-contrast=standard&amp;ms-lang=en-us"
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.ContentId">
+            <summary>
+            Set to a sender-defined string that uniquely identifies the content of the notification. This prevents duplicates in the situation where a large tile template is displaying the last three wide tile notifications.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.DisplayName">
+            <summary>
+            An optional string to override the tile's display name while showing this notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.LockDetailedStatus1">
+            <summary>
+            If you specify this, you must also provide a Wide tile binding. This is the first line of text that will be displayed on the lock screen if the user has selected your tile as their detailed status app.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.LockDetailedStatus2">
+            <summary>
+            If you specify this, you must also provide a Wide tile binding. This is the second line of text that will be displayed on the lock screen if the user has selected your tile as their detailed status app.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.LockDetailedStatus3">
+            <summary>
+            If you specify this, you must also provide a Wide tile binding. This is the third line of text that will be displayed on the lock screen if the user has selected your tile as their detailed status app.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.TileSmall">
+            <summary>
+            Provide an optional small binding to specify content for the small tile size.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.TileMedium">
+            <summary>
+            Provide an optional medium binding to specify content for the medium tile size.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.TileWide">
+            <summary>
+            Provide an optional wide binding to specify content for the wide tile size.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Tiles.TileVisual.TileLarge">
+            <summary>
+            Desktop-only. Provide an optional large binding to specify content for the large tile size.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Tiles.TileVisual.TryReuseTextElementForLockDetailedText(System.Int32,System.String,NotificationsExtensions.Tiles.Element_TileBinding)">
+            <summary>
+            Attempts to find and re-use an existing text element inside the binding. Returns true if it could. Otherwise returns false, and the caller will have to specify the detailed status using the lock hint attribute.
+            </summary>
+            <param name="lineNumber"></param>
+            <param name="lockText"></param>
+            <param name="binding"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastActivationType">
+            <summary>
+            Decides the type of activation that will be used when the user interacts with the toast notification.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastActivationType.Foreground">
+            <summary>
+            Default value. Your foreground app is launched.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastActivationType.Background">
+            <summary>
+            Your corresponding background task (assuming you set everything up) is triggered, and you can execute code in the background (like sending the user's quick reply message) without interrupting the user.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastActivationType.Protocol">
+            <summary>
+            Launch a different app using protocol activation.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastDuration">
+            <summary>
+            The amount of time the toast should display.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastDuration.Short">
+            <summary>
+            Default value. Toast appears for a short while and then goes into Action Center.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastDuration.Long">
+            <summary>
+            Toast stays on-screen for longer, and then goes into Action Center.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastScenario">
+            <summary>
+            Specifies the scenario, controlling behaviors about the toast.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastScenario.Default">
+            <summary>
+            The normal toast behavior. The toast appears for a short duration, and then automatically dismisses into Action Center.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastScenario.Alarm">
+            <summary>
+            Causes the toast to stay on-screen and expanded until the user takes action. Also causes a looping alarm sound to be selected by default.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastScenario.Reminder">
+            <summary>
+            Causes the toast to stay on-screen and expanded until the user takes action.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastScenario.IncomingCall">
+            <summary>
+            Causes the toast to stay on-screen and expanded until the user takes action (on Mobile this expands to full screen). Also causes a looping incoming call sound to be selected by default.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastAction.Content">
+            <summary>
+            The text to be displayed on the button.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastAction.Arguments">
+            <summary>
+            The arguments attribute describes the app-defined data that the app can later retrieve once it is activated from user taking this action.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastAction.ImageUri">
+            <summary>
+            imageUri is optional and is used to provide an image icon for this action to display inside the button alone with the text content.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastAction.InputId">
+            <summary>
+            This is specifically used for the quick reply scenario. 
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.Element_ToastActivationType.Foreground">
+            <summary>
+            Default value. Your foreground app is launched.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.Element_ToastActivationType.Background">
+            <summary>
+            Your corresponding background task (assuming you set everything up) is triggered, and you can execute code in the background (like sending the user's quick reply message) without interrupting the user.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.Element_ToastActivationType.Protocol">
+            <summary>
+            Launch a different app using protocol activation.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.Element_ToastActivationType.System">
+            <summary>
+            System handles the activation.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastAudio.Src">
+            <summary>
+            The media file to play in place of the default sound. This can either be a ms-winsoundevent value, or a custom ms-appx:/// or ms-appdata:/// file, or null for the default sound.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastAudio.Silent">
+            <summary>
+            True to mute the sound; false to allow the toast notification sound to play.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastBinding.AddImageQuery">
+            <summary>
+            Set to true to allow Windows to append a query string to the image URI supplied in the tile notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language; for instance, a value of
+            
+            "www.website.com/images/hello.png"
+            
+            included in the notification becomes
+            
+            "www.website.com/images/hello.png?ms-scale=100&amp;ms-contrast=standard&amp;ms-lang=en-us"
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastBinding.BaseUri">
+            <summary>
+            A default base URI that is combined with relative URIs in image source attributes.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastBinding.Language">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". The locale specified here overrides that in visual, but can be overriden by that in text. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string. See Remarks for when this value isn't specified.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastImageCrop">
+            <summary>
+            Specify the desired cropping of the image.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastImageCrop.None">
+            <summary>
+            Default value. Image is not cropped.
+            </summary>
+        </member>
+        <member name="F:NotificationsExtensions.Toasts.ToastImageCrop.Circle">
+            <summary>
+            Image is cropped to a circle shape.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastInput.Id">
+            <summary>
+            The id attribute is required and is for developers to retrieve user inputs once the app is activated (in the foreground or background).
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastInput.Title">
+            <summary>
+            The title attribute is optional and is for developers to specify a title for the input for shells to render when there is affordance.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastInput.PlaceholderContent">
+            <summary>
+            The placeholderContent attribute is optional and is the grey-out hint text for text input type. This attribute is ignored when the input type is not “text”.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastInput.DefaultInput">
+            <summary>
+            The defaultInput attribute is optional and it allows developer to provide a default input value.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastSelection.Id">
+            <summary>
+            The id attribute is required and it is for apps to retrieve back the user selected input after the app is activated.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.Element_ToastSelection.Content">
+            <summary>
+            The text to display for this selection element.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastActionsSnoozeAndDismiss">
+            <summary>
+            Automatically constructs a selection box for snooze intervals, and snooze/dismiss buttons, all automatically localized, and snoozing logic is automatically handled by the system.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastActionsSnoozeAndDismiss.#ctor">
+            <summary>
+            Automatically constructs a selection box for snooze intervals, and snooze/dismiss buttons, all automatically localized, and snoozing logic is automatically handled by the system.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastActionsCustom">
+            <summary>
+            Create your own custom actions, using controls like <see cref="T:NotificationsExtensions.Toasts.ToastButton"/>, <see cref="T:NotificationsExtensions.Toasts.ToastTextBox"/>, and <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBox"/>.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastActionsCustom.#ctor">
+            <summary>
+            Initializes a new instance of custom actions, which can use controls like <see cref="T:NotificationsExtensions.Toasts.ToastButton"/>, <see cref="T:NotificationsExtensions.Toasts.ToastTextBox"/>, and <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBox"/>.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastActionsCustom.Inputs">
+            <summary>
+            Inputs like <see cref="T:NotificationsExtensions.Toasts.ToastTextBox"/> and <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBox"/> can be added to the toast. Only up to 5 inputs can be added; after that, an exception is thrown.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastActionsCustom.Buttons">
+            <summary>
+            Buttons are displayed after all the inputs (or adjacent to inputs if used as quick reply buttons). Only up to 5 buttons can be added; after that, an exception is thrown. You can add <see cref="T:NotificationsExtensions.Toasts.ToastButton"/>, <see cref="T:NotificationsExtensions.Toasts.ToastButtonSnooze"/>, or <see cref="T:NotificationsExtensions.Toasts.ToastButtonDismiss"/>
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.IToastInput">
+            <summary>
+            An input element on a toast notification. One of <see cref="T:NotificationsExtensions.Toasts.ToastTextBox"/> or <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBox"/>.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.IToastActions">
+            <summary>
+            Actions to display on a toast notification. One of <see cref="T:NotificationsExtensions.Toasts.ToastActionsCustom"/> or <see cref="T:NotificationsExtensions.Toasts.ToastActionsSnoozeAndDismiss"/>.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastAppLogo">
+            <summary>
+            The logo that is displayed on your toast notification.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastAppLogo.#ctor">
+            <summary>
+            Initializes a new instance of a toast app logo, which can override the logo displayed on your toast notification. 
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastAppLogo.Source">
+            <summary>
+            Specify the image source.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastAppLogo.Crop">
+            <summary>
+            Specify how you would like the image to be cropped.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastAudio">
+            <summary>
+            Specify audio to be played when the toast notification is received.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastAudio.#ctor">
+            <summary>
+            Initializes a new instance of toast audio, which specifies what audio to play when the toast notification is received.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastAudio.Src">
+            <summary>
+            The media file to play in place of the default sound.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastAudio.Loop">
+            <summary>
+            Set to true if the sound should repeat as long as the toast is shown; false to play only once (default).
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastAudio.Silent">
+            <summary>
+            True to mute the sound; false to allow the toast notification sound to play (default).
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.IToastButton">
+            <summary>
+            One of <see cref="T:NotificationsExtensions.Toasts.ToastButton"/>, <see cref="T:NotificationsExtensions.Toasts.ToastButtonSnooze"/>, or <see cref="T:NotificationsExtensions.Toasts.ToastButtonDismiss"/>.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastButton">
+            <summary>
+            A button that the user can click on a toast notification.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastButton.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a toast button with the required properties.
+            </summary>
+            <param name="content">The text to display on the button.</param>
+            <param name="arguments">App-defined string of arguments that the app can later retrieve once it is activated when the user clicks the button.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButton.Content">
+            <summary>
+            Required. The text to display on the button.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButton.Arguments">
+            <summary>
+            Required. App-defined string of arguments that the app can later retrieve once it is activated when the user clicks the button.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButton.ActivationType">
+            <summary>
+            Controls what type of activation this button will use when clicked. Defaults to Foreground.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButton.ImageUri">
+            <summary>
+            An optional image icon for the button to display (required for buttons adjacent to inputs like quick reply).
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButton.TextBoxId">
+            <summary>
+            Specify the ID of an existing <see cref="T:NotificationsExtensions.Toasts.ToastTextBox"/> in order to have this button display to the right of the input, achieving a quick reply scenario.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastButtonDismiss">
+            <summary>
+            A button that, when clicked, is interpreted as a "dismiss" by the system, and the toast is dismissed just like if the user swiped the toast away.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButtonDismiss.CustomContent">
+            <summary>
+            Custom text displayed on the button that overrides the default localized "Dismiss" text.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastButtonDismiss.#ctor">
+            <summary>
+            Initializes a system-handled dismiss button that displays localized "Dismiss" text on the button.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastButtonDismiss.#ctor(System.String)">
+            <summary>
+            Constructs a system-handled dismiss button that displays your text on the button.
+            </summary>
+            <param name="customContent">The text you want displayed on the button.</param>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastButtonSnooze">
+            <summary>
+            A system-handled snooze button that automatically handles snoozing of a toast notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButtonSnooze.CustomContent">
+            <summary>
+            Custom text displayed on the button that overrides the default localized "Snooze" text.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastButtonSnooze.SelectionBoxId">
+            <summary>
+            Optionally specify the ID of an existing <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBox"/> in order to allow the user to pick a custom snooze time. The ID's of the <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBoxItem"/>s inside the selection box must represent the snooze interval in minutes. For example, if the user selects an item that has an ID of "120", then the notification will be snoozed for 2 hours. When the user clicks this button, if you specified a SelectionBoxId, the system will parse the ID of the selected item and snooze by that amount of minutes. If you didn't specify a SelectionBoxId, the system will snooze by the default system snooze time.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastButtonSnooze.#ctor">
+            <summary>
+            Initializes a system-handled snooze button that displays localized "Snooze" text on the button and automatically handles snoozing. 
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastButtonSnooze.#ctor(System.String)">
+            <summary>
+            Initializes a system-handled snooze button that displays your text on the button and automatically handles snoozing.
+            </summary>
+            <param name="customContent">The text you want displayed on the button.</param>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastContent">
+            <summary>
+            Base toast element, which contains at least a visual element.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastContent.#ctor">
+            <summary>
+            Initializes a new instance of toast content. You must then set the Visual property, which is required for a toast notification. You can optionally set Audio, Actions, and more.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.Visual">
+            <summary>
+            The visual element is required.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.Audio">
+            <summary>
+            Specify custom audio options.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.Actions">
+            <summary>
+            Optionally create custom actions with buttons and inputs (using <see cref="T:NotificationsExtensions.Toasts.ToastActionsCustom"/>) or optionally use the system-default snooze/dismiss controls (with <see cref="T:NotificationsExtensions.Toasts.ToastActionsSnoozeAndDismiss"/>).
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.Scenario">
+            <summary>
+            Specify the scenario, to make the toast behave like an alarm, reminder, or more.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.Duration">
+            <summary>
+            The amount of time the toast should display. You typically should use the Scenario attribute instead, which impacts how long a toast stays on screen.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.Launch">
+            <summary>
+            A string that is passed to the application when it is activated by the toast. The format and contents of this string are defined by the app for its own use. When the user taps or clicks the toast to launch its associated app, the launch string provides the context to the app that allows it to show the user a view relevant to the toast content, rather than launching in its default way.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastContent.ActivationType">
+            <summary>
+            Specifies what activation type will be used when the user clicks the body of this toast.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastContent.GetContent">
+            <summary>
+            Retrieves the notification XML content as a string, so that it can be sent with a HTTP POST in a push notification.
+            </summary>
+            <returns>The notification XML content as a string.</returns>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastImageSource">
+            <summary>
+            Defines a toast image source and related properties.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastImageSource.#ctor(System.String)">
+            <summary>
+            Constructs an image source with all the required properties.
+            </summary>
+            <param name="src">The URI of the image source. Can be from your application package, application data, or the internet.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastImageSource.Src">
+            <summary>
+            The URI of the image source. Can be from your application package, application data, or the internet.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastImageSource.Alt">
+            <summary>
+            A description of the image, for users of assistive technologies.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastImageSource.AddImageQuery">
+            <summary>
+            Set to true to allow Windows to append a query string to the image URI supplied in the tile notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastImageSource.ToString">
+            <summary>
+            Returns the value of the Src property.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastImage">
+            <summary>
+            An inline image displayed in your toast notification.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastImage.#ctor">
+            <summary>
+            Constructs an inline image that can be displayed on a toast notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastImage.Source">
+            <summary>
+            Specify the image source.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastSelectionBox">
+            <summary>
+            A selection box control, which lets users pick from a dropdown list of options.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastSelectionBox.#ctor(System.String)">
+            <summary>
+            Initializes a new toast SelectionBox input control with the required elements.
+            </summary>
+            <param name="id">Developer-provided ID that the developer uses later to retrieve input when the toast is interacted with.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastSelectionBox.Id">
+            <summary>
+            The ID property is required, and is used so that developers can retrieve user input once the app is activated.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastSelectionBox.Title">
+            <summary>
+            Title text to display above the SelectionBox.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastSelectionBox.DefaultSelectionBoxItemId">
+            <summary>
+            This controls which item is selected by default, and refers to the Id property of <see cref="T:NotificationsExtensions.Toasts.ToastSelectionBoxItem"/>. If you do not provide this, the default selection will be empty (user sees nothing).
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastSelectionBox.Items">
+            <summary>
+            The selection items that the user can pick from in this SelectionBox. Only 5 items can be added.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastSelectionBoxItem">
+            <summary>
+            A selection box item (an item that the user can select from the drop down list).
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastSelectionBoxItem.#ctor(System.String,System.String)">
+            <summary>
+            Constructs a new toast SelectionBoxItem with the required elements.
+            </summary>
+            <param name="id">Developer-provided ID that the developer uses later to retrieve input when the toast is interacted with.</param>
+            <param name="content">String that is displayed on the selection item. This is what the user sees.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastSelectionBoxItem.Id">
+            <summary>
+            The ID property is required, and is used so that developers can retrieve user input once the app is activated.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastSelectionBoxItem.Content">
+            <summary>
+            The Content property is required, and is a string that is displayed on the selection item.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastText">
+            <summary>
+            Defines a text element to be displayed on the toast notification.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastText.#ctor">
+            <summary>
+            Constructs a new text element that can be displayed on a toast notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastText.Text">
+            <summary>
+            The text to display.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastText.Language">
+            <summary>
+            The target locale of the XML payload, specified as a BCP-47 language tags such as "en-US" or "fr-FR". The locale specified here overrides any other specified locale, such as that in binding or visual. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastTextBox">
+            <summary>
+            A text box control on the toast that a user can type text into.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastTextBox.#ctor(System.String)">
+            <summary>
+            Initializes a new toast TextBox input control with the required elements.
+            </summary>
+            <param name="id">Developer-provided ID that the developer uses later to retrieve input when the toast is interacted with.</param>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastTextBox.Id">
+            <summary>
+            The ID property is required, and is used so that developers can retrieve user input once the app is activated.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastTextBox.Title">
+            <summary>
+            Title text to display above the text box.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastTextBox.PlaceholderContent">
+            <summary>
+            Placeholder text to be displayed on the text box when the user hasn't typed any text yet.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastTextBox.DefaultInput">
+            <summary>
+            The initial text to place in the text box. Leave this null for a blank text box.
+            </summary>
+        </member>
+        <member name="T:NotificationsExtensions.Toasts.ToastVisual">
+            <summary>
+            Defines the visual aspects of a toast notification.
+            </summary>
+        </member>
+        <member name="M:NotificationsExtensions.Toasts.ToastVisual.#ctor">
+            <summary>
+            Initializes a new instance that defines the visual aspects of a toast notification.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.Version">
+            <summary>
+            The version of the tile XML schema this particular payload was developed for. Windows 10 ignores this property.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.Language">
+            <summary>
+            The target locale of the XML payload, specified as BCP-47 language tags such as "en-US" or "fr-FR". This locale is overridden by any locale specified in binding or text. If this value is a literal string, this attribute defaults to the user's UI language. If this value is a string reference, this attribute defaults to the locale chosen by Windows Runtime in resolving the string.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.BaseUri">
+            <summary>
+            A default base URI that is combined with relative URIs in image source attributes.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.AddImageQuery">
+            <summary>
+            Set to "true" to allow Windows to append a query string to the image URI supplied in the toast notification. Use this attribute if your server hosts images and can handle query strings, either by retrieving an image variant based on the query strings or by ignoring the query string and returning the image as specified without the query string. This query string specifies scale, contrast setting, and language.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.TitleText">
+            <summary>
+            The title text displayed on the toast notification, shown as the first line of text.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.BodyTextLine1">
+            <summary>
+            The first line of body text (after the title)
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.BodyTextLine2">
+            <summary>
+            The second line of body text
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.InlineImages">
+            <summary>
+            Inline images to display after the lines of text. Only 6 images are allowed. Adding more than 6 will throw an exception.
+            </summary>
+        </member>
+        <member name="P:NotificationsExtensions.Toasts.ToastVisual.AppLogoOverride">
+            <summary>
+            An optional override of the logo displayed on the toast notification.
+            </summary>
+        </member>
+    </members>
+</doc>
