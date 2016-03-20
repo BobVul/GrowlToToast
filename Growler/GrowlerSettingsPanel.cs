@@ -11,8 +11,6 @@ namespace Growler
 {
     public partial class GrowlerSettingsPanel : SettingsPanelBase
     {
-        public static readonly string SETTING_SILENT = "silent";
-
         public GrowlerSettingsPanel()
         {
             InitializeComponent();
@@ -20,20 +18,25 @@ namespace Growler
 
         private void checkBoxSilent_CheckedChanged(object sender, EventArgs e)
         {
-            this.SaveSetting(SETTING_SILENT, checkBoxSilent.Checked);
+            this.SaveSetting(GrowlerSettingKeymap.GetKey(GrowlerSetting.Silent), checkBoxSilent.Checked);
+        }
+
+        private void checkBoxIgnoreClose_CheckedChanged(object sender, EventArgs e)
+        {
+            this.SaveSetting(GrowlerSettingKeymap.GetKey(GrowlerSetting.IgnoreClose), checkBoxIgnoreClose.Checked);
         }
 
         private void GrowlerSettingsPanel_Load(object sender, EventArgs e)
         {
             Dictionary<string, object> settings = this.GetSettings();
-            if (!settings.ContainsKey(SETTING_SILENT))
-            {
-                this.SaveSetting(SETTING_SILENT, false);
-            }
-            bool silent = (bool)settings[SETTING_SILENT];
-            if (silent)
+            object val;
+            if (settings.TryGetValue(GrowlerSettingKeymap.GetKey(GrowlerSetting.Silent), out val) && (bool)val)
             {
                 checkBoxSilent.Checked = true;
+            }
+            if (settings.TryGetValue(GrowlerSettingKeymap.GetKey(GrowlerSetting.IgnoreClose), out val) && (bool)val)
+            {
+                checkBoxIgnoreClose.Checked = true;
             }
         }
     }

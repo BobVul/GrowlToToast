@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.checkBoxSilent = new System.Windows.Forms.CheckBox();
+            this.checkBoxIgnoreClose = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBoxSilent
@@ -42,10 +43,22 @@
             this.checkBoxSilent.UseVisualStyleBackColor = true;
             this.checkBoxSilent.CheckedChanged += new System.EventHandler(this.checkBoxSilent_CheckedChanged);
             // 
+            // checkBoxIgnoreClose
+            // 
+            this.checkBoxIgnoreClose.AutoSize = true;
+            this.checkBoxIgnoreClose.Location = new System.Drawing.Point(14, 42);
+            this.checkBoxIgnoreClose.Name = "checkBoxIgnoreClose";
+            this.checkBoxIgnoreClose.Size = new System.Drawing.Size(239, 17);
+            this.checkBoxIgnoreClose.TabIndex = 1;
+            this.checkBoxIgnoreClose.Text = "Ignore Growl commands to close notifications";
+            this.checkBoxIgnoreClose.UseVisualStyleBackColor = true;
+            this.checkBoxIgnoreClose.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreClose_CheckedChanged);
+            // 
             // GrowlerSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBoxIgnoreClose);
             this.Controls.Add(this.checkBoxSilent);
             this.Name = "GrowlerSettingsPanel";
             this.Load += new System.EventHandler(this.GrowlerSettingsPanel_Load);
@@ -57,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.CheckBox checkBoxSilent;
+        private System.Windows.Forms.CheckBox checkBoxIgnoreClose;
     }
 }

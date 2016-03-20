@@ -20,17 +20,23 @@ namespace Growler
             string title = notification.Title;
             string message = notification.Description;
 
-            LaunchToaster(String.Format("show {0} {1} {2}", Base64Encode(title), Base64Encode(message), this.GetSettingOrDefault<bool>(GrowlerSettingsPanel.SETTING_SILENT, false)));
+            LaunchToaster(String.Format("show {0} {1} {2}", Base64Encode(title), Base64Encode(message), this.GetSettingOrDefault<bool>(GrowlerSetting.Silent, false)));
         }
 
         public override void CloseAllOpenNotifications()
         {
-            LaunchToaster("closeall");
+            if (!this.GetSettingOrDefault<bool>(GrowlerSetting.IgnoreClose, false))
+            {
+                LaunchToaster("closeall");
+            }
         }
 
         public override void CloseLastNotification()
         {
-            LaunchToaster("closelast");
+            if (!this.GetSettingOrDefault<bool>(GrowlerSetting.IgnoreClose, false))
+            {
+                LaunchToaster("closelast");
+            }
         }
 
         public override string Author
@@ -58,8 +64,9 @@ namespace Growler
             get { return "https://github.com/Elusive138/GrowlToToast"; }
         }
 
-        private T GetSettingOrDefault<T>(string key, T def)
+        private T GetSettingOrDefault<T>(GrowlerSetting setting, T def)
         {
+            string key = GrowlerSettingKeymap.GetKey(setting);
             if (!this.SettingsCollection.ContainsKey(key))
                 return def;
             return (T)this.SettingsCollection[key];

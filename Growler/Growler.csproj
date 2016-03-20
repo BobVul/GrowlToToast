@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Growler.cs" />
+    <Compile Include="GrowlerSetting.cs" />
+    <Compile Include="GrowlerSettingKeymap.cs" />
     <Compile Include="GrowlerSettingsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
