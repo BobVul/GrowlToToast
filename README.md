@@ -13,7 +13,7 @@ This is untested with but will probably not work on Windows 8.
 
 ## Installation
 
-Grab the [latest release](https://github.com/Elusive138/GrowlToToast/releases/download/v0.1/GrowlToToast.zip), and extract the ZIP into `%LocalAppData%\Growl\Displays\GrowlToToast` so that `Growler.dll` and the `Toaster` *folder* are both within the `GrowlToToast` folder.
+Grab the [latest release](https://github.com/Elusive138/GrowlToToast/releases/), and extract the ZIP into `%LocalAppData%\Growl\Displays\GrowlToToast` so that `Growler.dll` and the `Toaster` *folder* are both within the `GrowlToToast` folder.
 
 ----
 
