@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 
@@ -19,14 +21,14 @@ namespace GrowlToToast.Bread
             Image img = (Image)value;
             using (MemoryStream ms = new MemoryStream())
             {
-                img.Save(ms, img.RawFormat);
-                writer.WriteValue(Convert.ToBase64String(ms.ToArray()));
+                img.Save(ms, ImageFormat.Png);
+                (new JValue(Convert.ToBase64String(ms.ToArray()))).WriteTo(writer);
             }
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            using (MemoryStream ms = new MemoryStream(Convert.FromBase64String((string)existingValue)))
+            using (MemoryStream ms = new MemoryStream(Convert.FromBase64String((string)reader.Value)))
             {
                 return Image.FromStream(ms);
             }

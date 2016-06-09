@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 using NotificationsExtensions.Toasts;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +31,8 @@ namespace GrowlToToast.Toaster
                     break;
 
                 case ActionType.Show:
+                    string imagePath = Path.ChangeExtension(Path.GetTempFileName(), "png");
+                    bread.Image.Save(imagePath, ImageFormat.Png);
                     ToastContent content = new ToastContent()
                     {
                         Visual = new ToastVisual()
@@ -40,6 +44,10 @@ namespace GrowlToToast.Toaster
                             BodyTextLine1 = new ToastText()
                             {
                                 Text = bread.Body
+                            },
+                            AppLogoOverride = new ToastAppLogo
+                            {
+                                Source = new ToastImageSource("file:///" + imagePath)
                             }
                         }
                     };

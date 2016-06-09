@@ -27,8 +27,6 @@ namespace GrowlToToast.Growler
                 Silent = this.GetSettingOrDefault<bool>(GrowlerSetting.Silent, false),
                 Image = notification.Image
             };
-            string title = notification.Title;
-            string message = notification.Description;
 
             LaunchToaster(bread);
         }
