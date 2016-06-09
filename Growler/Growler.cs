@@ -25,9 +25,13 @@ namespace GrowlToToast.Growler
                 Title = notification.Title,
                 Body = notification.Description,
                 Silent = this.GetSettingOrDefault<bool>(GrowlerSetting.Silent, false),
-                Image = notification.Image,
-                AppName = notification.ApplicationName
+                Image = notification.Image
             };
+
+            if (this.GetSettingOrDefault<bool>(GrowlerSetting.ShowAppName, false))
+            {
+                bread.AppName = notification.ApplicationName;
+            }
 
             LaunchToaster(bread);
         }

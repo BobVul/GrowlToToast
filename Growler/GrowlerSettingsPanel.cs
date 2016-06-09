@@ -26,6 +26,11 @@ namespace GrowlToToast.Growler
             this.SaveSetting(GrowlerSettingKeymap.GetKey(GrowlerSetting.IgnoreClose), checkBoxIgnoreClose.Checked);
         }
 
+        private void checkBoxShowAppName_CheckedChanged(object sender, EventArgs e)
+        {
+            this.SaveSetting(GrowlerSettingKeymap.GetKey(GrowlerSetting.ShowAppName), checkBoxShowAppName.Checked);
+        }
+
         private void GrowlerSettingsPanel_Load(object sender, EventArgs e)
         {
             Dictionary<string, object> settings = this.GetSettings();
@@ -37,6 +42,10 @@ namespace GrowlToToast.Growler
             if (settings.TryGetValue(GrowlerSettingKeymap.GetKey(GrowlerSetting.IgnoreClose), out val) && (bool)val)
             {
                 checkBoxIgnoreClose.Checked = true;
+            }
+            if (settings.TryGetValue(GrowlerSettingKeymap.GetKey(GrowlerSetting.ShowAppName), out val) && (bool)val)
+            {
+                checkBoxShowAppName.Checked = true;
             }
         }
     }

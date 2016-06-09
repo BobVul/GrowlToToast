@@ -30,6 +30,7 @@
         {
             this.checkBoxSilent = new System.Windows.Forms.CheckBox();
             this.checkBoxIgnoreClose = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowAppName = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBoxSilent
@@ -54,10 +55,22 @@
             this.checkBoxIgnoreClose.UseVisualStyleBackColor = true;
             this.checkBoxIgnoreClose.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreClose_CheckedChanged);
             // 
+            // checkBoxShowAppName
+            // 
+            this.checkBoxShowAppName.AutoSize = true;
+            this.checkBoxShowAppName.Location = new System.Drawing.Point(14, 65);
+            this.checkBoxShowAppName.Name = "checkBoxShowAppName";
+            this.checkBoxShowAppName.Size = new System.Drawing.Size(300, 17);
+            this.checkBoxShowAppName.TabIndex = 2;
+            this.checkBoxShowAppName.Text = "Show the name of the application that sent the notification";
+            this.checkBoxShowAppName.UseVisualStyleBackColor = true;
+            this.checkBoxShowAppName.CheckedChanged += new System.EventHandler(this.checkBoxShowAppName_CheckedChanged);
+            // 
             // GrowlerSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBoxShowAppName);
             this.Controls.Add(this.checkBoxIgnoreClose);
             this.Controls.Add(this.checkBoxSilent);
             this.Name = "GrowlerSettingsPanel";
@@ -71,5 +84,6 @@
 
         private System.Windows.Forms.CheckBox checkBoxSilent;
         private System.Windows.Forms.CheckBox checkBoxIgnoreClose;
+        private System.Windows.Forms.CheckBox checkBoxShowAppName;
     }
 }

@@ -7,6 +7,7 @@ namespace GrowlToToast.Growler
     enum GrowlerSetting
     {
         Silent,
-        IgnoreClose
+        IgnoreClose,
+        ShowAppName
     }
 }
