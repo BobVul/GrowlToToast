@@ -1,4 +1,4 @@
-﻿namespace Growler
+﻿namespace GrowlToToast.Growler
 {
     partial class GrowlerSettingsPanel
     {

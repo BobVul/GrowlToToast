@@ -1,4 +1,6 @@
 ﻿using Growl.DisplayStyle;
+using GrowlToToast.Bread;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,17 +19,25 @@ namespace GrowlToToast.Growler
 
         protected override void HandleNotification(Notification notification, string displayName)
         {
+            Message bread = new Message
+            {
+                Action = ActionType.Show,
+                Title = notification.Title,
+                Body = notification.Description,
+                Silent = this.GetSettingOrDefault<bool>(GrowlerSetting.Silent, false),
+                Image = notification.Image
+            };
             string title = notification.Title;
             string message = notification.Description;
 
-            LaunchToaster(String.Format("show {0} {1} {2}", Base64Encode(title), Base64Encode(message), this.GetSettingOrDefault<bool>(GrowlerSetting.Silent, false)));
+            LaunchToaster(bread);
         }
 
         public override void CloseAllOpenNotifications()
         {
             if (!this.GetSettingOrDefault<bool>(GrowlerSetting.IgnoreClose, false))
             {
-                LaunchToaster("closeall");
+                LaunchToaster(new Message { Action = ActionType.CloseAll });
             }
         }
 
@@ -35,7 +45,7 @@ namespace GrowlToToast.Growler
         {
             if (!this.GetSettingOrDefault<bool>(GrowlerSetting.IgnoreClose, false))
             {
-                LaunchToaster("closelast");
+                LaunchToaster(new Message { Action = ActionType.CloseLast });
             }
         }
 
@@ -56,7 +66,7 @@ namespace GrowlToToast.Growler
 
         public override string Version
         {
-            get { return "0.1"; }
+            get { return "0.2a2"; }
         }
 
         public override string Website
@@ -72,9 +82,20 @@ namespace GrowlToToast.Growler
             return (T)this.SettingsCollection[key];
         }
 
-        private void LaunchToaster(string args)
+        private void LaunchToaster(Message bread)
         {
-            Process.Start(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Toaster\Toaster.exe"), args);
+            Process p = new Process()
+            {
+                StartInfo = new ProcessStartInfo()
+                {
+                    RedirectStandardInput = true,
+                    UseShellExecute = false,
+                    FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Toaster\GrowlToToast.Toaster.exe")
+                }
+            };
+            p.Start();
+            p.StandardInput.WriteLine(JsonConvert.SerializeObject(bread));
+            p.StandardInput.Flush();
         }
 
         private string Base64Encode(string text)

@@ -1,10 +1,11 @@
-﻿using NotificationsExtensions.Toasts;
+﻿using GrowlToToast.Bread;
+using Newtonsoft.Json;
+using NotificationsExtensions.Toasts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
 
@@ -14,37 +15,36 @@ namespace GrowlToToast.Toaster
     {
         private const string APP_ID = "GrowlToToast";
 
-        static void Main(string[] args)
+        static void Main()
         {
-            switch (args[0])
+            Message bread = JsonConvert.DeserializeObject<Message>(Console.ReadLine());
+            switch (bread.Action)
             {
-                case "closeall":
+                case ActionType.CloseAll:
                     ToastNotificationManager.History.Clear();
                     break;
-                case "closelast":
+
+                case ActionType.CloseLast:
                     ToastNotificationManager.History.Remove(ToastNotificationManager.History.GetHistory().Last().Tag);
                     break;
-                case "show":
-                    string title = Base64Decode(args[1]);
-                    string message = Base64Decode(args[2]);
-                    bool silent = Boolean.Parse(args[3]);
 
+                case ActionType.Show:
                     ToastContent content = new ToastContent()
                     {
                         Visual = new ToastVisual()
                         {
                             TitleText = new ToastText()
                             {
-                                Text = title
+                                Text = bread.Title
                             },
                             BodyTextLine1 = new ToastText()
                             {
-                                Text = message
+                                Text = bread.Body
                             }
                         }
                     };
 
-                    if (silent)
+                    if (bread.Silent)
                     {
                         content.Audio = new ToastAudio()
                         {
@@ -61,11 +61,6 @@ namespace GrowlToToast.Toaster
                     ToastNotificationManager.CreateToastNotifier(APP_ID).Show(toast);
                     break;
             }
-        }
-
-        private static string Base64Decode(string encoded)
-        {
-            return Encoding.UTF8.GetString(Convert.FromBase64String(encoded));
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Growler", "Growler\Growler.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toaster", "Toaster\Toaster.csproj", "{3D7233A4-4751-4D41-8947-FF6604C9142D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread", "Bread\Bread.csproj", "{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3D7233A4-4751-4D41-8947-FF6604C9142D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D7233A4-4751-4D41-8947-FF6604C9142D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D7233A4-4751-4D41-8947-FF6604C9142D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
