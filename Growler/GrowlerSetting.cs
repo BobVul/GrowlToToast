@@ -8,6 +8,7 @@ namespace GrowlToToast.Growler
     {
         Silent,
         IgnoreClose,
-        ShowAppName
+        ShowAppName,
+        PersistNotifications
     }
 }

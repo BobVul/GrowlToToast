@@ -20,5 +20,7 @@ namespace GrowlToToast.Bread
         public Image Image { get; set; }
 
         public string AppName { get; set; }
+
+        public bool PersistNotifications { get; set; }
     }
 }

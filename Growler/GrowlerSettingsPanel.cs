@@ -31,6 +31,11 @@ namespace GrowlToToast.Growler
             this.SaveSetting(GrowlerSettingKeymap.GetKey(GrowlerSetting.ShowAppName), checkBoxShowAppName.Checked);
         }
 
+        private void checkBoxPersistNotifications_CheckedChanged(object sender, EventArgs e)
+        {
+            this.SaveSetting(GrowlerSettingKeymap.GetKey(GrowlerSetting.PersistNotifications), checkBoxPersistNotifications.Checked);
+        }
+
         private void GrowlerSettingsPanel_Load(object sender, EventArgs e)
         {
             Dictionary<string, object> settings = this.GetSettings();
@@ -46,6 +51,10 @@ namespace GrowlToToast.Growler
             if (settings.TryGetValue(GrowlerSettingKeymap.GetKey(GrowlerSetting.ShowAppName), out val) && (bool)val)
             {
                 checkBoxShowAppName.Checked = true;
+            }
+            if (settings.TryGetValue(GrowlerSettingKeymap.GetKey(GrowlerSetting.PersistNotifications), out val) && (bool)val)
+            {
+                checkBoxPersistNotifications.Checked = true;
             }
         }
     }

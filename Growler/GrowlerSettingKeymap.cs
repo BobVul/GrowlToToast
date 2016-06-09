@@ -10,7 +10,8 @@ namespace GrowlToToast.Growler
         {
             { GrowlerSetting.Silent, "silent" },
             { GrowlerSetting.IgnoreClose, "ignore_close" },
-            { GrowlerSetting.ShowAppName, "show_app_name" }
+            { GrowlerSetting.ShowAppName, "show_app_name" },
+            { GrowlerSetting.PersistNotifications, "persist_notifications" },
         };
 
         public static string GetKey(GrowlerSetting setting)

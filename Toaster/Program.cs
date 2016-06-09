@@ -53,8 +53,7 @@ namespace GrowlToToast.Toaster
                             {
                                 Source = new ToastImageSource("file:///" + imagePath)
                             }
-                        },
-                        ActivationType = ToastActivationType.Background
+                        }
                     };
 
                     if (bread.Silent)
@@ -63,6 +62,11 @@ namespace GrowlToToast.Toaster
                         {
                             Silent = true
                         };
+                    }
+
+                    if (bread.PersistNotifications)
+                    {
+                        content.ActivationType = ToastActivationType.Background;
                     }
 
                     XmlDocument doc = new XmlDocument();

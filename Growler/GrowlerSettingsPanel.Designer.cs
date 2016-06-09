@@ -31,6 +31,7 @@
             this.checkBoxSilent = new System.Windows.Forms.CheckBox();
             this.checkBoxIgnoreClose = new System.Windows.Forms.CheckBox();
             this.checkBoxShowAppName = new System.Windows.Forms.CheckBox();
+            this.checkBoxPersistNotifications = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBoxSilent
@@ -66,10 +67,22 @@
             this.checkBoxShowAppName.UseVisualStyleBackColor = true;
             this.checkBoxShowAppName.CheckedChanged += new System.EventHandler(this.checkBoxShowAppName_CheckedChanged);
             // 
+            // checkBoxPersistNotifications
+            // 
+            this.checkBoxPersistNotifications.AutoSize = true;
+            this.checkBoxPersistNotifications.Location = new System.Drawing.Point(14, 88);
+            this.checkBoxPersistNotifications.Name = "checkBoxPersistNotifications";
+            this.checkBoxPersistNotifications.Size = new System.Drawing.Size(301, 17);
+            this.checkBoxPersistNotifications.TabIndex = 3;
+            this.checkBoxPersistNotifications.Text = "Keep notifications in action centre until explicitly dismissed.";
+            this.checkBoxPersistNotifications.UseVisualStyleBackColor = true;
+            this.checkBoxPersistNotifications.CheckedChanged += new System.EventHandler(this.checkBoxPersistNotifications_CheckedChanged);
+            // 
             // GrowlerSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBoxPersistNotifications);
             this.Controls.Add(this.checkBoxShowAppName);
             this.Controls.Add(this.checkBoxIgnoreClose);
             this.Controls.Add(this.checkBoxSilent);
@@ -85,5 +98,6 @@
         private System.Windows.Forms.CheckBox checkBoxSilent;
         private System.Windows.Forms.CheckBox checkBoxIgnoreClose;
         private System.Windows.Forms.CheckBox checkBoxShowAppName;
+        private System.Windows.Forms.CheckBox checkBoxPersistNotifications;
     }
 }
