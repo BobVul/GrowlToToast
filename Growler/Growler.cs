@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace Growler
+namespace GrowlToToast.Growler
 {
     public class Growler : Display
     {

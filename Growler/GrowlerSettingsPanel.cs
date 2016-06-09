@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Growl.DisplayStyle;
 
-namespace Growler
+namespace GrowlToToast.Growler
 {
     public partial class GrowlerSettingsPanel : SettingsPanelBase
     {

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
 
-namespace Toaster
+namespace GrowlToToast.Toaster
 {
     static class Program
     {

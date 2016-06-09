@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Growler
+namespace GrowlToToast.Growler
 {
     static class GrowlerSettingKeymap
     {
