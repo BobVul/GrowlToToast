@@ -18,5 +18,7 @@ namespace GrowlToToast.Bread
 
         [JsonConverter(typeof(ImageJsonConverter))]
         public Image Image { get; set; }
+
+        public string AppName { get; set; }
     }
 }

@@ -45,6 +45,10 @@ namespace GrowlToToast.Toaster
                             {
                                 Text = bread.Body
                             },
+                            BodyTextLine2 = new ToastText()
+                            {
+                                Text = bread.AppName,
+                            },
                             AppLogoOverride = new ToastAppLogo
                             {
                                 Source = new ToastImageSource("file:///" + imagePath)
