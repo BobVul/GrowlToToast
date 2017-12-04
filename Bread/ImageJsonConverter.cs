@@ -28,6 +28,10 @@ namespace GrowlToToast.Bread
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            if (String.IsNullOrEmpty((string)reader.Value))
+            {
+                return null;
+            }
             using (MemoryStream ms = new MemoryStream(Convert.FromBase64String((string)reader.Value)))
             {
                 return Image.FromStream(ms);

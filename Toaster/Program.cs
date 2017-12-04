@@ -33,8 +33,6 @@ namespace GrowlToToast.Toaster
                         break;
 
                     case ActionType.Show:
-                        string imagePath = Path.ChangeExtension(Path.GetTempFileName(), "png");
-                        bread.Image.Save(imagePath, ImageFormat.Png);
                         ToastContent content = new ToastContent()
                         {
                             Visual = new ToastVisual()
@@ -50,13 +48,19 @@ namespace GrowlToToast.Toaster
                                 BodyTextLine2 = new ToastText()
                                 {
                                     Text = bread.AppName,
-                                },
-                                AppLogoOverride = new ToastAppLogo
-                                {
-                                    Source = new ToastImageSource("file:///" + imagePath)
                                 }
                             }
                         };
+
+                        if (bread.Image != null)
+                        {
+                            string imagePath = Path.ChangeExtension(Path.GetTempFileName(), "png");
+                            bread.Image.Save(imagePath, ImageFormat.Png);
+                            content.Visual.AppLogoOverride = new ToastAppLogo
+                            {
+                                Source = new ToastImageSource("file:///" + imagePath)
+                            };
+                        }
 
                         if (bread.Silent)
                         {
