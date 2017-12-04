@@ -28,3 +28,6 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 
 /.vs/
+
+# Ignore the big NuGet packages while keeping the required binaries
+*.nupkg
