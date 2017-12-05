@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Growler", "Growler\Growler.csproj", "{98B66CA8-8CDA-4958-B98B-4D9949B4A3B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Growler", "src\Growler\Growler.csproj", "{98B66CA8-8CDA-4958-B98B-4D9949B4A3B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toaster", "Toaster\Toaster.csproj", "{3D7233A4-4751-4D41-8947-FF6604C9142D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toaster", "src\Toaster\Toaster.csproj", "{3D7233A4-4751-4D41-8947-FF6604C9142D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread", "Bread\Bread.csproj", "{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread", "src\Bread\Bread.csproj", "{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixSharp Setup", "WixSharp Setup\WixSharp Setup.csproj", "{44555887-C439-470C-944D-8866EC3D7067}"
 EndProject
