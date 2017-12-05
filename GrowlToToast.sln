@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toaster", "Toaster\Toaster.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread", "Bread\Bread.csproj", "{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixSharp Setup", "WixSharp Setup\WixSharp Setup.csproj", "{44555887-C439-470C-944D-8866EC3D7067}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,15 @@ Global
 		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1647F4C-C083-4C92-89AD-8F39F74F6FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44555887-C439-470C-944D-8866EC3D7067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44555887-C439-470C-944D-8866EC3D7067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44555887-C439-470C-944D-8866EC3D7067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44555887-C439-470C-944D-8866EC3D7067}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CDCEFB4-9347-4CB5-ADB5-49CA79879ACB}
 	EndGlobalSection
 EndGlobal
