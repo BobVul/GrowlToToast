@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread", "src\Bread\Bread.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixSharp Setup", "WixSharp Setup\WixSharp Setup.csproj", "{44555887-C439-470C-944D-8866EC3D7067}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowlerInstaller", "GrowlerInstaller\GrowlerInstaller.csproj", "{EF2BF305-2426-4C38-B05A-1B335D58A1BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{44555887-C439-470C-944D-8866EC3D7067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44555887-C439-470C-944D-8866EC3D7067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44555887-C439-470C-944D-8866EC3D7067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2BF305-2426-4C38-B05A-1B335D58A1BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2BF305-2426-4C38-B05A-1B335D58A1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2BF305-2426-4C38-B05A-1B335D58A1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2BF305-2426-4C38-B05A-1B335D58A1BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
