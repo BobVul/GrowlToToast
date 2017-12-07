@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread", "src\Bread\Bread.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixSharp Setup", "WixSharp Setup\WixSharp Setup.csproj", "{44555887-C439-470C-944D-8866EC3D7067}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowlerInstaller", "GrowlerInstaller\GrowlerInstaller.csproj", "{EF2BF305-2426-4C38-B05A-1B335D58A1BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowlerInstaller", "src\GrowlerInstaller\GrowlerInstaller.csproj", "{EF2BF305-2426-4C38-B05A-1B335D58A1BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
