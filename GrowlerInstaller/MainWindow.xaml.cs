@@ -1,4 +1,4 @@
-﻿using GrowlerInstaller.Installer;
+﻿using GrowlerInstaller.Install;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

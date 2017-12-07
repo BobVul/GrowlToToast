@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrowlerInstaller.Installer
+namespace GrowlerInstaller.Install
 {
     class SystemInstallation : Installation
     {
         public override string Name { get; } = "All users";
+        public override string InstallPath { get; set; } = new Growl.CoreLibrary.Detector().DisplaysFolder;
     }
 }

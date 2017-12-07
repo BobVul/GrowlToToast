@@ -13,6 +13,6 @@
             <Label>Install location</Label>
             <ListBox ItemsSource="{Binding}" DisplayMemberPath="Name" IsSynchronizedWithCurrentItem="true" BorderThickness="0" Width="100"/>
         </StackPanel>
-        <local:InstallationDetailsControl />
+        <local:InstallationDetailsControl DataContext="{Binding}"/>
     </DockPanel>
 </Window>

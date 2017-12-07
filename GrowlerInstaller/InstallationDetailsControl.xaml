@@ -4,22 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GrowlerInstaller"
+             xmlns:conv="clr-namespace:GrowlerInstaller.BindingValueConverters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Margin="5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Label Content="Label" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox TextWrapping="Wrap" Grid.Column="1" Text="TextBox" VerticalAlignment="Center" Margin="5,0"/>
-        <Label Content="Label" Grid.Column="2" VerticalAlignment="Center" Margin="5,0"/>
-        <Button Content="Button" Grid.Column="3" VerticalAlignment="Center" Margin="5,0"/>
+    <UserControl.Resources>
+        <conv:InvertBooleanConverter  x:Key="invertBooleanConverter"/>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="IsReadOnly" Value="True" >
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
 
-    </Grid>
+    <StackPanel Margin="5">
+        <Label Content="{Binding Name, FallbackValue=Location Label}" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding InstallPath}" IsReadOnly="{Binding InstallPathEditable, Converter={StaticResource invertBooleanConverter}}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="5,0" />
+        <Label Content="Label" VerticalAlignment="Center"/>
+        <Button Content="Button" VerticalAlignment="Center" Margin="5,0"/>
+
+    </StackPanel>
 </UserControl>

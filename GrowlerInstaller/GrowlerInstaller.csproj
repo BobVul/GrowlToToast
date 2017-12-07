@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Growl.CoreLibrary">
+      <HintPath>..\src\Growler\Growl.CoreLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="PropertyChanged, Version=2.2.2.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyChanged.Fody.2.2.2.0\lib\net452\PropertyChanged.dll</HintPath>
     </Reference>
@@ -59,8 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Installer\CustomInstallation.cs" />
-    <Compile Include="Installer\SystemInstallation.cs" />
+    <Compile Include="BindingValueConverters\InvertBooleanConverter.cs" />
+    <Compile Include="Install\CustomInstallation.cs" />
+    <Compile Include="Install\Installer.cs" />
+    <Compile Include="Install\SystemInstallation.cs" />
     <Page Include="InstallationDetailsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,11 +78,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Installer\Installation.cs" />
+    <Compile Include="Install\Installation.cs" />
     <Compile Include="InstallationDetailsControl.xaml.cs">
       <DependentUpon>InstallationDetailsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Installer\UserInstallation.cs" />
+    <Compile Include="Install\UserInstallation.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
