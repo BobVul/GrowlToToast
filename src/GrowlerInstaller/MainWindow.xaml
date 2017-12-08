@@ -5,14 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GrowlerInstaller"
+        xmlns:ViewModels="clr-namespace:GrowlerInstaller.ViewModels"
+        xmlns:Views="clr-namespace:GrowlerInstaller.Views"
         mc:Ignorable="d"
-        Title="GrowlToToast installer" Height="350" Width="525"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <DockPanel DataContext="{Binding Installations}">
-        <StackPanel>
-            <Label>Install location</Label>
-            <ListBox ItemsSource="{Binding}" DisplayMemberPath="Name" IsSynchronizedWithCurrentItem="true" BorderThickness="0" Width="100"/>
-        </StackPanel>
-        <local:InstallationDetailsControl DataContext="{Binding}"/>
-    </DockPanel>
+        Title="GrowlToToast installer" Height="350" Width="525">
+    <Window.DataContext>
+        <ViewModels:AdvancedViewModel />
+    </Window.DataContext>
+    <Views:AdvancedView />
 </Window>

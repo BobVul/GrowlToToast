@@ -1,7 +1,5 @@
-﻿using GrowlerInstaller.Install;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GrowlerInstaller
+namespace GrowlerInstaller.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for InstallationDetails.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InstallationDetailsView : UserControl
     {
-        public MainWindow()
+        public InstallationDetailsView()
         {
             InitializeComponent();
         }

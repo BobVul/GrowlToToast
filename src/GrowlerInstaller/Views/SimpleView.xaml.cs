@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GrowlerInstaller
+namespace GrowlerInstaller.Views
 {
     /// <summary>
-    /// Interaction logic for InstallationDetails.xaml
+    /// Interaction logic for SimpleView.xaml
     /// </summary>
-    public partial class InstallationDetailsControl : UserControl
+    public partial class SimpleView : UserControl
     {
-        public InstallationDetailsControl()
+        public SimpleView()
         {
             InitializeComponent();
         }

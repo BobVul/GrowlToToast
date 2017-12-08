@@ -65,13 +65,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\AdvancedView.xaml.cs">
+      <DependentUpon>AdvancedView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BindingValueConverters\InvertBooleanConverter.cs" />
+    <Compile Include="ViewModels\InstallationDetailsViewModel.cs" />
     <Compile Include="Install\Constants.cs" />
     <Compile Include="Install\CustomInstallation.cs" />
     <Compile Include="Install\Installer.cs" />
     <Compile Include="Install\SourceInstallation.cs" />
     <Compile Include="Install\SystemInstallation.cs" />
-    <Page Include="InstallationDetailsControl.xaml">
+    <Compile Include="Views\SimpleView.xaml.cs">
+      <DependentUpon>SimpleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AdvancedViewModel.cs" />
+    <Compile Include="ViewModels\SimpleViewModel.cs" />
+    <Page Include="Views\AdvancedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InstallationDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,14 +97,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Install\Installation.cs" />
-    <Compile Include="InstallationDetailsControl.xaml.cs">
-      <DependentUpon>InstallationDetailsControl.xaml</DependentUpon>
+    <Compile Include="Views\InstallationDetailsView.xaml.cs">
+      <DependentUpon>InstallationDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Install\UserInstallation.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\SimpleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
