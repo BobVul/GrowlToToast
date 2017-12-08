@@ -26,11 +26,11 @@
         <TextBox Text="{Binding Target.InstallPath}" IsReadOnly="{Binding Target.InstallPathEditable, Converter={StaticResource invertBooleanConverter}}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="5,0" />
         <DockPanel LastChildFill="False">
             <Label Content="Installed version" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-            <Label Content="{Binding Target.ProductVersion}" VerticalAlignment="Center" DockPanel.Dock="Right"/>
+            <Label Content="{Binding TargetVersion}" VerticalAlignment="Center" DockPanel.Dock="Right"/>
         </DockPanel>
         <DockPanel LastChildFill="False">
             <Label Content="Current version" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-            <Label Content="{Binding Source.ProductVersion}" VerticalAlignment="Center" DockPanel.Dock="Right"/>
+            <Label Content="{Binding SourceVersion}" VerticalAlignment="Center" DockPanel.Dock="Right"/>
         </DockPanel>
 
         <Button Content="Install" VerticalAlignment="Center" Margin="5"/>

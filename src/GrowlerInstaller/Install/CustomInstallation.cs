@@ -9,6 +9,7 @@ namespace GrowlerInstaller.Install
     class CustomInstallation : Installation
     {
         public override string Name { get; } = "Custom";
+        public override string InstallPath { get; set; } = "";
         public override bool InstallPathEditable { get; } = true;
     }
 }
