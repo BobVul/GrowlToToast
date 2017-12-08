@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GrowlerInstaller"
              xmlns:conv="clr-namespace:GrowlerInstaller.BindingValueConverters"
+             xmlns:install="clr-namespace:GrowlerInstaller.Install"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance install:Installation}">
     <UserControl.Resources>
         <conv:InvertBooleanConverter  x:Key="invertBooleanConverter"/>
         <Style TargetType="{x:Type TextBox}">
@@ -20,10 +22,19 @@
     </UserControl.Resources>
 
     <StackPanel Margin="5">
-        <Label Content="{Binding Name, FallbackValue=Location Label}" VerticalAlignment="Center"/>
+        <Label Content="{Binding Name}" ContentStringFormat="{}{0} install location" VerticalAlignment="Center"/>
         <TextBox Text="{Binding InstallPath}" IsReadOnly="{Binding InstallPathEditable, Converter={StaticResource invertBooleanConverter}}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="5,0" />
-        <Label Content="Label" VerticalAlignment="Center"/>
-        <Button Content="Button" VerticalAlignment="Center" Margin="5,0"/>
+        <DockPanel LastChildFill="False">
+            <Label Content="Installed version" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+            <Label Content="{Binding ProductVersion}" VerticalAlignment="Center" DockPanel.Dock="Right"/>
+        </DockPanel>
+        <DockPanel LastChildFill="False">
+            <Label Content="Current version" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+            <Label Content="Label" VerticalAlignment="Center" DockPanel.Dock="Right"/>
+        </DockPanel>
+
+        <Button Content="Install" VerticalAlignment="Center" Margin="5"/>
+        <Button Content="Remove" VerticalAlignment="Center" Margin="5,0,5,5"/>
 
     </StackPanel>
 </UserControl>

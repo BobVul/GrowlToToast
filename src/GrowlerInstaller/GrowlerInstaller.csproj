@@ -66,8 +66,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BindingValueConverters\InvertBooleanConverter.cs" />
+    <Compile Include="Install\Constants.cs" />
     <Compile Include="Install\CustomInstallation.cs" />
     <Compile Include="Install\Installer.cs" />
+    <Compile Include="Install\SourceInstallation.cs" />
     <Compile Include="Install\SystemInstallation.cs" />
     <Page Include="InstallationDetailsControl.xaml">
       <SubType>Designer</SubType>
