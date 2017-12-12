@@ -40,7 +40,7 @@ namespace GrowlerInstaller.ViewModels
         {
             try
             {
-                if (!ins.IsInstalled)
+                if (!ins.Installed)
                 {
                     return "Not installed";
                 }

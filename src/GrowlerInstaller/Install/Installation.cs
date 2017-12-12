@@ -16,7 +16,7 @@ namespace GrowlerInstaller.Install
         public virtual string InstallPath { get; set; }
         public virtual bool InstallPathEditable { get; } = false;
 
-        public bool IsInstalled
+        public bool Installed
         {
             get
             {
