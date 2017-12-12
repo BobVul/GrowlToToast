@@ -21,7 +21,7 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Margin="5">
+    <StackPanel Margin="5" IsEnabled="{Binding Target.Installable}">
         <Label Content="{Binding Target.Name}" ContentStringFormat="{}{0} install location" VerticalAlignment="Center"/>
         <TextBox Text="{Binding Target.InstallPath}" IsReadOnly="{Binding Target.InstallPathEditable, Converter={StaticResource invertBooleanConverter}}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="5,0" />
         <DockPanel LastChildFill="False">
