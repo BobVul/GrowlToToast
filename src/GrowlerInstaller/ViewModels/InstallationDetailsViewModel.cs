@@ -1,10 +1,12 @@
-﻿using GrowlerInstaller.Install;
+﻿using GrowlerInstaller.Helpers;
+using GrowlerInstaller.Install;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace GrowlerInstaller.ViewModels
 {
@@ -30,10 +32,28 @@ namespace GrowlerInstaller.ViewModels
             }
         }
 
+        public ICommand InstallCommand { get; }
+        public ICommand RemoveCommand { get; }
+
         public InstallationDetailsViewModel(Installation source, Installation target)
         {
             Source = source;
             Target = target;
+
+            InstallCommand = new RelayCommand(() =>
+            {
+                Installer ins = new Installer(Source, Target);
+                ins.Install();
+            });
+
+            RemoveCommand = new RelayCommand(() =>
+            {
+                Installer ins = new Installer(Source, Target);
+                ins.Remove();
+            }, () =>
+            {
+                return Target.Installed;
+            });
         }
 
         private string GetVersionInfo(Installation ins)
