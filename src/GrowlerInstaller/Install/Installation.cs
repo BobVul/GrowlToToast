@@ -21,7 +21,7 @@ namespace GrowlerInstaller.Install
         {
             get
             {
-                var dllPath = Path.Combine(InstallPath, Constants.GrowlerDllName);
+                var dllPath = Path.Combine(InstallPath ?? "", Constants.GrowlerDllName);
                 return File.Exists(dllPath);
             }
         }
