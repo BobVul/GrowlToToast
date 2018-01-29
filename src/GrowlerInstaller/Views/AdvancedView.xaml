@@ -8,7 +8,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel DataContext="{Binding Installations}">
         <StackPanel>
-            <Label>Install location</Label>
+            <Label>
+                <TextBlock TextDecorations="Underline">Install location</TextBlock>
+            </Label>
             <ListBox ItemsSource="{Binding}" DisplayMemberPath="Target.Name" IsSynchronizedWithCurrentItem="true" BorderThickness="0" Width="100"/>
         </StackPanel>
         <local:InstallationDetailsView DataContext="{Binding}"/>
