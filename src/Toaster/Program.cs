@@ -54,7 +54,7 @@ namespace GrowlToToast.Toaster
 
                         if (bread.Image != null)
                         {
-                            string imagePath = Path.ChangeExtension(Path.GetTempFileName(), "png");
+                            string imagePath = GetTempImagePath(".png");
                             bread.Image.Save(imagePath, ImageFormat.Png);
                             content.Visual.AppLogoOverride = new ToastAppLogo
                             {
@@ -84,6 +84,8 @@ namespace GrowlToToast.Toaster
                         ToastNotificationManager.CreateToastNotifier(APP_ID).Show(toast);
                         break;
                 }
+
+                ClearOldImages(30);
             }
             catch (Exception ex)
             {
@@ -91,6 +93,33 @@ namespace GrowlToToast.Toaster
                 File.AppendAllText("GrowlToToast.Toaster.log", ex.ToString());
                 throw;
             }
+        }
+
+        private static void ClearOldImages(int days)
+        {
+            var tempPath = Path.Combine(Path.GetTempPath(), "GrowlToToast.Toaster.Images");
+            var threshold = DateTime.UtcNow.AddDays(-days);
+            foreach (string file in Directory.EnumerateFiles(tempPath))
+            {
+                FileInfo fi = new FileInfo(file);
+                if (fi.CreationTimeUtc < threshold)
+                {
+                    fi.Delete();
+                }
+            }
+        }
+
+        private static string GetTempImagePath(string extension)
+        {
+            var tempPath = Path.Combine(Path.GetTempPath(), "GrowlToToast.Toaster.Images");
+            Directory.CreateDirectory(tempPath);
+            string tempImagePath;
+            do
+            {
+                tempImagePath = Path.Combine(tempPath, Path.ChangeExtension(Guid.NewGuid().ToString(), extension));
+            } while (File.Exists(tempImagePath));
+            
+            return tempImagePath;
         }
     }
 }
