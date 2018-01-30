@@ -15,7 +15,7 @@ namespace GrowlToToast.Toaster
 {
     static class Program
     {
-        private const string APP_ID = "GrowlToToast";
+        private const string APP_ID = "GrowlToToast.Toaster";
 
         static void Main()
         {
