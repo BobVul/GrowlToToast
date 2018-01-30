@@ -13,7 +13,7 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class InstallationDetailsViewModel
     {
-        public Installation Source { get; }
+        public SourceInstallation Source { get; }
         public Installation Target { get; }
 
         public string SourceVersion
@@ -35,7 +35,7 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
         public ICommand InstallCommand { get; }
         public ICommand RemoveCommand { get; }
 
-        public InstallationDetailsViewModel(Installation source, Installation target)
+        public InstallationDetailsViewModel(SourceInstallation source, Installation target)
         {
             Source = source;
             Target = target;

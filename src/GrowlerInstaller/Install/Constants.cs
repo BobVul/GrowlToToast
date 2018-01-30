@@ -11,5 +11,7 @@ namespace GrowlToToast.GrowlerInstaller.Install
         public static string GrowlerDllName = "GrowlToToast.Growler.dll";
         public static string DefaultInstallDir = "GrowlToToast";
         public static string GrowlerDirRelativePath = @"..\Growler";
+        public static string ToasterDirRelativePath = @"..\Toaster";
+        public static string ToasterExeName = "Toaster.exe";
     }
 }

@@ -9,10 +9,10 @@ namespace GrowlToToast.GrowlerInstaller.Install
 {
     public class Installer
     {
-        Installation source;
+        SourceInstallation source;
         Installation target;
 
-        public Installer(Installation source, Installation target)
+        public Installer(SourceInstallation source, Installation target)
         {
             this.source = source;
             this.target = target;
@@ -21,6 +21,7 @@ namespace GrowlToToast.GrowlerInstaller.Install
         public void Install()
         {
             CopyDirectory(new DirectoryInfo(source.InstallPath), new DirectoryInfo(target.InstallPath), true, true);
+            File.WriteAllText(Path.Combine(target.InstallPath, "toasterpath"), source.InstallPath);
         }
 
         public void Remove()

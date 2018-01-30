@@ -94,7 +94,7 @@ namespace GrowlToToast.Growler
                 {
                     RedirectStandardInput = true,
                     UseShellExecute = false,
-                    FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Toaster\GrowlToToast.Toaster.exe")
+                    FileName = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"toasterpath"))
                 }
             };
             p.Start();

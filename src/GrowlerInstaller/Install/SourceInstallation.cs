@@ -10,13 +10,31 @@ namespace GrowlToToast.GrowlerInstaller.Install
 {
     public class SourceInstallation : Installation
     {
-        public override string InstallPath
+        public string InstallerDir
         {
             get
             {
                 var installerExe = Assembly.GetEntryAssembly().Location;
                 var installerDir = Path.GetDirectoryName(installerExe);
-                var growlerDir = Path.GetFullPath(Path.Combine(installerDir, Constants.GrowlerDirRelativePath));
+                return installerDir;
+            }
+        }
+
+        public string ToasterExePath
+        {
+            get
+            {
+                var toasterDir = Path.Combine(InstallerDir, Constants.ToasterDirRelativePath);
+                var toasterPath = Path.Combine(toasterDir, Constants.ToasterExeName);
+                return toasterPath;
+            }
+        }
+
+        public override string InstallPath
+        {
+            get
+            {
+                var growlerDir = Path.GetFullPath(Path.Combine(InstallerDir, Constants.GrowlerDirRelativePath));
                 return growlerDir;
             }
         }
