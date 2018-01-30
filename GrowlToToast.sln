@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixSharp Setup", "WixSharp 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowlerInstaller", "src\GrowlerInstaller\GrowlerInstaller.csproj", "{EF2BF305-2426-4C38-B05A-1B335D58A1BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A84B9403-4439-4D13-941D-C00BD970330C}"
+	ProjectSection(SolutionItems) = preProject
+		src\VersionInfo.cs = src\VersionInfo.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
