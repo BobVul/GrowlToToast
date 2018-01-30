@@ -32,6 +32,14 @@ namespace WixSharp_Setup
 
             project.GUID = new Guid("69141597-0065-4998-810F-FF2480AD7447");
             project.Version = GetCurrentVersion();
+
+            project.ControlPanelInfo.Readme = "https://github.com/BobVul/GrowlToToast/blob/master/README.md";
+            project.ControlPanelInfo.HelpLink = "https://github.com/BobVul/GrowlToToast/issues";
+            project.ControlPanelInfo.Contact = "https://github.com/BobVul/GrowlToToast/issues";
+            project.ControlPanelInfo.Manufacturer = "BobVul";
+            project.ControlPanelInfo.UrlInfoAbout = "https://github.com/BobVul/GrowlToToast";
+            project.ControlPanelInfo.UrlUpdateInfo = "https://github.com/BobVul/GrowlToToast/releases";
+
             project.OutDir = @"..\build";
 
             project.LicenceFile = @"..\LICENSE.rtf";
