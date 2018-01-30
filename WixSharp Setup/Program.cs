@@ -16,10 +16,19 @@ namespace WixSharp_Setup
         {
             var project = new Project("GrowlToToast",
                               new Dir(@"%ProgramFiles%\GrowlToToast",
-                                  new Files(@"..\build\Release\*.*")),
-                              new Dir(@"%ProgramMenu%\GrowlToToast",
-                                new ExeFileShortcut(new Id(ToasterShortcutId), "Toaster", @"[INSTALLDIR]\Toaster\GrowlToToast.Toaster.exe", ""),
-                                new ExeFileShortcut("GrowlerInstaller", @"[INSTALLDIR]\GrowlerInstaller\GrowlToToast.GrowlerInstaller.exe", "")));
+                                  new Files(@"..\build\Release\*.*")));
+
+            project.ResolveWildCards();
+            project.AllFiles.Single(f => f.Name.EndsWith("GrowlToToast.Toaster.exe"))
+                .Shortcuts = new[]
+                {
+                    new FileShortcut(new Id(ToasterShortcutId), "Toaster", @"%ProgramMenuFolder%\GrowlToToast")
+                };
+            project.AllFiles.Single(f => f.Name.EndsWith("GrowlToToast.GrowlerInstaller.exe"))
+                .Shortcuts = new[]
+                {
+                    new FileShortcut("GrowlerInstaller", @"%ProgramMenuFolder%\GrowlToToast")
+                };
 
             project.GUID = new Guid("69141597-0065-4998-810F-FF2480AD7447");
             project.OutDir = @"..\build";
@@ -32,8 +41,7 @@ namespace WixSharp_Setup
             project.WixSourceGenerated += (XDocument document) =>
             {
                 var allEls = document.Descendants();
-                var toasterShortcutComponent = allEls.First(el => el.Attribute("Id")?.Value == ToasterShortcutId);
-                var toasterShortcutEl = toasterShortcutComponent.Select("Shortcut");
+                var toasterShortcutEl = allEls.First(el => el.Attribute("Id")?.Value?.EndsWith(ToasterShortcutId) ?? false);
                 toasterShortcutEl.Add(
                     new XElement("ShortcutProperty",
                         new XAttribute("Key", "System.AppUserModel.ID"),
