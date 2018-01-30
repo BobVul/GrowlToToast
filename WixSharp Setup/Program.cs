@@ -31,6 +31,7 @@ namespace WixSharp_Setup
                 };
 
             project.GUID = new Guid("69141597-0065-4998-810F-FF2480AD7447");
+            project.Version = GetCurrentVersion();
             project.OutDir = @"..\build";
 
             project.LicenceFile = @"..\LICENSE.rtf";
@@ -49,6 +50,11 @@ namespace WixSharp_Setup
             };
             
             project.BuildMsi();
+        }
+
+        static Version GetCurrentVersion()
+        {
+            return new Version(System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).FileVersion);
         }
     }
 }
