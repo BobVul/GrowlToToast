@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace GrowlerInstaller.BindingValueConverters
+namespace GrowlToToast.GrowlerInstaller.BindingValueConverters
 {
     [ValueConversion(typeof(bool), typeof(bool))]
     class InvertBooleanConverter : IValueConverter

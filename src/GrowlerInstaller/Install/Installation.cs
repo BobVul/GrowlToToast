@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrowlerInstaller.Install
+namespace GrowlToToast.GrowlerInstaller.Install
 {
     [AddINotifyPropertyChangedInterface]
     public abstract class Installation

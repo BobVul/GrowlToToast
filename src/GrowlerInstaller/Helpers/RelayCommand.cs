@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace GrowlerInstaller.Helpers
+namespace GrowlToToast.GrowlerInstaller.Helpers
 {
     class RelayCommand : ICommand
     {

@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrowlerInstaller.Install
+namespace GrowlToToast.GrowlerInstaller.Install
 {
     public class SourceInstallation : Installation
     {

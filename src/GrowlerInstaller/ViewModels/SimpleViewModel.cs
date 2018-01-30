@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrowlerInstaller.ViewModels
+namespace GrowlToToast.GrowlerInstaller.ViewModels
 {
     class SimpleViewModel
     {

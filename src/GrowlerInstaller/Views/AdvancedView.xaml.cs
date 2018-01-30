@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GrowlerInstaller.Views
+namespace GrowlToToast.GrowlerInstaller.Views
 {
     /// <summary>
     /// Interaction logic for AdvancedView.xaml

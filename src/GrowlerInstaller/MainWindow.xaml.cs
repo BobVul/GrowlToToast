@@ -1,4 +1,4 @@
-﻿using GrowlerInstaller.Install;
+﻿using GrowlToToast.GrowlerInstaller.Install;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GrowlerInstaller
+namespace GrowlToToast.GrowlerInstaller
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
