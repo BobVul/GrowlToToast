@@ -21,7 +21,7 @@ namespace GrowlToToast.GrowlerInstaller.Install
         public void Install()
         {
             CopyDirectory(new DirectoryInfo(source.InstallPath), new DirectoryInfo(target.InstallPath), true, true);
-            File.WriteAllText(Path.Combine(target.InstallPath, "toasterpath"), source.InstallPath);
+            File.WriteAllText(Path.Combine(target.InstallPath, "toasterpath"), Path.Combine(source.InstallerDir, Constants.ToasterDirRelativePath, Constants.ToasterExeName));
         }
 
         public void Remove()
