@@ -55,7 +55,7 @@ namespace GrowlToToast.Growler
 
         public override string Author
         {
-            get { return "Vulpin"; }
+            get { return "BobVul"; }
         }
 
         public override string Description
@@ -82,7 +82,7 @@ namespace GrowlToToast.Growler
 
         public override string Website
         {
-            get { return "https://github.com/Elusive138/GrowlToToast"; }
+            get { return "https://github.com/BobVul/GrowlToToast"; }
         }
 
         private T GetSettingOrDefault<T>(GrowlerSetting setting, T def)
