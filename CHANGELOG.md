@@ -14,6 +14,8 @@
 - Image cleanup will probably fail if no images were ever created [\#18](https://github.com/BobVul/GrowlToToast/issues/18)
 - System-wide install uses the wrong path [\#17](https://github.com/BobVul/GrowlToToast/issues/17)
 - Toaster should accept empty images [\#13](https://github.com/BobVul/GrowlToToast/issues/13)
+- Currently does not work in 1709 [\#11](https://github.com/BobVul/GrowlToToast/issues/11)
+- Notifications fail to display if linked icon is missing [\#6](https://github.com/BobVul/GrowlToToast/issues/6)
 
 **Closed issues:**
 
