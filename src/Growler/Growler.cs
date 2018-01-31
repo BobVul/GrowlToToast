@@ -70,7 +70,14 @@ namespace GrowlToToast.Growler
 
         public override string Version
         {
-            get { return "0.2a2"; }
+            get {
+                return (Attribute
+                            .GetCustomAttribute(
+                                Assembly.GetExecutingAssembly(),
+                                typeof(AssemblyInformationalVersionAttribute))
+                            as AssemblyInformationalVersionAttribute
+                            )?.InformationalVersion ?? "Unknown";
+            }
         }
 
         public override string Website
