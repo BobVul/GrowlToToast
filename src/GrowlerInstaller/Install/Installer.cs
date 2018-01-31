@@ -22,11 +22,13 @@ namespace GrowlToToast.GrowlerInstaller.Install
         {
             CopyDirectory(new DirectoryInfo(source.InstallPath), new DirectoryInfo(target.InstallPath), true, true);
             File.WriteAllText(Path.Combine(target.InstallPath, "toasterpath"), Path.Combine(source.InstallerDir, Constants.ToasterDirRelativePath, Constants.ToasterExeName));
+            target.RefreshInstallStatus();
         }
 
         public void Remove()
         {
             Directory.Delete(target.InstallPath, true);
+            target.RefreshInstallStatus();
         }
 
         /// <summary>

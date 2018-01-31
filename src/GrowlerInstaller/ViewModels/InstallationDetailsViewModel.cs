@@ -30,6 +30,10 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
             {
                 return GetVersionInfo(Target);
             }
+            private set
+            {
+                // does nothing; exists only for property change notifications
+            }
         }
 
         public ICommand InstallCommand { get; }
@@ -44,12 +48,14 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
             {
                 Installer ins = new Installer(Source, Target);
                 ins.Install();
+                TargetVersion = ""; // hacky way to refresh property
             });
 
             RemoveCommand = new RelayCommand(() =>
             {
                 Installer ins = new Installer(Source, Target);
                 ins.Remove();
+                TargetVersion = ""; // hacky way to refresh property
             }, () =>
             {
                 return Target.Installed;

@@ -1,6 +1,7 @@
 ﻿using PropertyChanged;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace GrowlToToast.GrowlerInstaller.Install
         public virtual bool InstallPathEditable { get; } = false;
         public virtual bool Installable { get; } = true;
 
+        [AlsoNotifyFor("ProductVersion")]
+        [DoNotCheckEqualityAttribute]
         public bool Installed
         {
             get
@@ -24,8 +27,13 @@ namespace GrowlToToast.GrowlerInstaller.Install
                 var dllPath = Path.Combine(InstallPath ?? "", Constants.GrowlerDllName);
                 return File.Exists(dllPath);
             }
+            private set
+            {
+                // do nothing, used to support updates
+            }
         }
 
+        [DoNotCheckEqualityAttribute]
         public string ProductVersion
         {
             get
@@ -33,6 +41,12 @@ namespace GrowlToToast.GrowlerInstaller.Install
                 var dllPath = Path.Combine(InstallPath, Constants.GrowlerDllName);
                 return FileVersionInfo.GetVersionInfo(dllPath).ProductVersion;
             }
+        }
+
+        public void RefreshInstallStatus()
+        {
+            // trigger property change notifications; does not actually set anything
+            this.Installed = false;
         }
     }
 }
