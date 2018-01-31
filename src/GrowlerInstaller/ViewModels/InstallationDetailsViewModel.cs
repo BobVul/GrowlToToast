@@ -50,7 +50,11 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
                 try
                 {
                     Installer ins = new Installer(Source, Target);
-                    ins.Install();
+                    if (MessageBox.Show($"Install in {ins.TargetPath}?", "Confirm install", MessageBoxButton.YesNo, MessageBoxImage.None, MessageBoxResult.No) == MessageBoxResult.Yes)
+                    {
+                        ins.Install();
+                    }
+
                     TargetVersion = ""; // hacky way to refresh property
                 }
                 catch (Exception ex)
@@ -67,7 +71,11 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
                 try
                 {
                     Installer ins = new Installer(Source, Target);
-                    ins.Remove();
+                    if (MessageBox.Show($"Remove all files in {ins.TargetPath}?", "Confirm removal", MessageBoxButton.YesNo, MessageBoxImage.None, MessageBoxResult.No) == MessageBoxResult.Yes)
+                    {
+                        ins.Remove();
+                    }
+
                     TargetVersion = ""; // hacky way to refresh property
                 }
                 catch (Exception ex)

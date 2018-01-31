@@ -12,6 +12,14 @@ namespace GrowlToToast.GrowlerInstaller.Install
         SourceInstallation source;
         Installation target;
 
+        public string TargetPath
+        {
+            get
+            {
+                return target.InstallPath;
+            }
+        }
+
         public Installer(SourceInstallation source, Installation target)
         {
             this.source = source;
@@ -20,14 +28,14 @@ namespace GrowlToToast.GrowlerInstaller.Install
 
         public void Install()
         {
-            CopyDirectory(new DirectoryInfo(source.InstallPath), new DirectoryInfo(target.InstallPath), true, true);
-            File.WriteAllText(Path.Combine(target.InstallPath, "toasterpath"), Path.Combine(source.InstallerDir, Constants.ToasterDirRelativePath, Constants.ToasterExeName));
+            CopyDirectory(new DirectoryInfo(source.InstallPath), new DirectoryInfo(TargetPath), true, true);
+            File.WriteAllText(Path.Combine(TargetPath, "toasterpath"), Path.Combine(source.InstallerDir, Constants.ToasterDirRelativePath, Constants.ToasterExeName));
             target.RefreshInstallStatus();
         }
 
         public void Remove()
         {
-            Directory.Delete(target.InstallPath, true);
+            Directory.Delete(TargetPath, true);
             target.RefreshInstallStatus();
         }
 
