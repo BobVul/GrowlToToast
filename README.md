@@ -12,7 +12,7 @@ Implements a Growl Display with a companion program to forward them to Windows 1
 ## Installation
 
 1. Grab the [latest release](https://github.com/BobVul/GrowlToToast/releases)
-2. Run the MSI installer. This will install the application and create the "Toaster" shortcut in your Start Menu. **The Start Menu shortcut must exist**; it is required in order to display notifications as of Windows 10 v1709.
+2. Run the MSI installer. This will install the application and create the "GrowlToToast.Toaster" shortcut in your Start Menu. **The Start Menu shortcut must exist**; it is required in order to display notifications as of Windows 10 v1709.
 3. Exit Growl if it is running.
 4. Run the "GrowlerInstaller" application. You can run this from the shortcut in your Start Menu, under the GrowlToToast folder. This will add the actual plugin to Growl. In most cases, simply installing it under the "Current User" location will be enough.
 5. Start Growl and enable the display in the Growl settings.
