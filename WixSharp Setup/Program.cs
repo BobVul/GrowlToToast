@@ -22,7 +22,7 @@ namespace WixSharp_Setup
             project.AllFiles.Single(f => f.Name.EndsWith("GrowlToToast.Toaster.exe"))
                 .Shortcuts = new[]
                 {
-                    new FileShortcut(new Id(ToasterShortcutId), "Toaster", @"%ProgramMenuFolder%\GrowlToToast")
+                    new FileShortcut(new Id(ToasterShortcutId), "GrowlToToast.Toaster", @"%ProgramMenuFolder%\GrowlToToast")
                 };
             project.AllFiles.Single(f => f.Name.EndsWith("GrowlToToast.GrowlerInstaller.exe"))
                 .Shortcuts = new[]
