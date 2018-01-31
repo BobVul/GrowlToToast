@@ -1,6 +1,6 @@
 # GrowlToToast
 
-Implements a Growl Display with a companion program to forward them to Windows 10 Toast notifications.
+Implements a Growl Display with a companion program to forward them to Windows 10 Toast notifications (Action Center).
 
 * Sends Growl titles and messages
 * Supports configurable "silent" mode
@@ -9,11 +9,13 @@ Implements a Growl Display with a companion program to forward them to Windows 1
 
 * Windows 10
 
-This is untested with but will probably not work on Windows 8.
-
 ## Installation
 
-Grab the [latest release](https://github.com/Elusive138/GrowlToToast/releases), and extract the ZIP into `%LocalAppData%\Growl\Displays\GrowlToToast` so that `Growler.dll` and the `Toaster` *folder* are both within the `GrowlToToast` folder.
+1. Grab the [latest release](https://github.com/BobVul/GrowlToToast/releases)
+2. Run the MSI installer. This will install the application and create the "Toaster" shortcut in your Start Menu. **The Start Menu shortcut must exist**; it is required in order to display notifications as of Windows 10 v1709.
+3. Exit Growl if it is running.
+4. Run the "GrowlerInstaller" application. You can run this from the shortcut in your Start Menu, under the GrowlToToast folder. This will add the actual plugin to Growl. In most cases, simply installing it under the "Current User" location will be enough.
+5. Start Growl and enable the display in the Growl settings.
 
 ----
 
