@@ -39,9 +39,6 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Growl.CoreLibrary">
-      <HintPath>..\Growler\Growl.CoreLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Ookii.Dialogs.Wpf">
       <HintPath>.\Ookii.Dialogs.Wpf.dll</HintPath>
     </Reference>
