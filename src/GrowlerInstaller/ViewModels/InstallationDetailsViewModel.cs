@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace GrowlToToast.GrowlerInstaller.ViewModels
@@ -46,16 +47,36 @@ namespace GrowlToToast.GrowlerInstaller.ViewModels
 
             InstallCommand = new RelayCommand(() =>
             {
-                Installer ins = new Installer(Source, Target);
-                ins.Install();
-                TargetVersion = ""; // hacky way to refresh property
+                try
+                {
+                    Installer ins = new Installer(Source, Target);
+                    ins.Install();
+                    TargetVersion = ""; // hacky way to refresh property
+                }
+                catch (Exception ex)
+                {
+                    if (MessageBox.Show("An exception occurred: " + ex.Message + "\r\n\r\nWould you like to report this error to the developer?", "Error", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        Helpers.ErrorReporter.LaunchReporter(ex);
+                    }
+                }
             });
 
             RemoveCommand = new RelayCommand(() =>
             {
-                Installer ins = new Installer(Source, Target);
-                ins.Remove();
-                TargetVersion = ""; // hacky way to refresh property
+                try
+                {
+                    Installer ins = new Installer(Source, Target);
+                    ins.Remove();
+                    TargetVersion = ""; // hacky way to refresh property
+                }
+                catch (Exception ex)
+                {
+                    if (MessageBox.Show("An exception occurred: " + ex.Message + "\r\n\r\nWould you like to report this error to the developer?", "Error", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        Helpers.ErrorReporter.LaunchReporter(ex);
+                    }
+                }
             }, () =>
             {
                 return Target.Installed;
