@@ -98,6 +98,14 @@ namespace GrowlToToast.Toaster
         private static void ClearOldImages(int days)
         {
             var tempPath = Path.Combine(Path.GetTempPath(), "GrowlToToast.Toaster.Images");
+            if (!Directory.Exists(tempPath))
+            {
+                // the dir is only created if images were previously used at some point
+                // there is the possibility that something deletes this path between the check and the enumeration below
+                // but it's probably not worth handling specially (e.g. adding logging functionality)
+                return;
+            }
+
             var threshold = DateTime.UtcNow.AddDays(-days);
             foreach (string file in Directory.EnumerateFiles(tempPath))
             {
