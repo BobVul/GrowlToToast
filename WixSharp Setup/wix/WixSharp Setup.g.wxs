@@ -175,6 +175,8 @@
 
     <WixVariable Id="WixUILicenseRtf" Value="..\LICENSE.rtf" />
 
+    <MajorUpgrade DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." Schedule="afterInstallInitialize" />
+
     <UIRef Id="WixUI_InstallDir" />
 
     <Property Id="ARPCONTACT" Value="https://github.com/BobVul/GrowlToToast/issues" />

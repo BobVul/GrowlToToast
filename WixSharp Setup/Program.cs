@@ -32,6 +32,7 @@ namespace WixSharp_Setup
 
             project.GUID = new Guid("69141597-0065-4998-810F-FF2480AD7447");
             project.Version = GetCurrentVersion();
+            project.MajorUpgrade = MajorUpgrade.Default;
 
             project.ControlPanelInfo.Readme = "https://github.com/BobVul/GrowlToToast/blob/master/README.md";
             project.ControlPanelInfo.HelpLink = "https://github.com/BobVul/GrowlToToast/issues";
