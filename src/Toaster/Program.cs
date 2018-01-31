@@ -85,7 +85,7 @@ namespace GrowlToToast.Toaster
                         break;
                 }
 
-                ClearOldImages(30);
+                ClearOldImages(TimeSpan.FromDays(30));
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace GrowlToToast.Toaster
             }
         }
 
-        private static void ClearOldImages(int days)
+        private static void ClearOldImages(TimeSpan time)
         {
             var tempPath = Path.Combine(Path.GetTempPath(), "GrowlToToast.Toaster.Images");
             if (!Directory.Exists(tempPath))
@@ -106,7 +106,7 @@ namespace GrowlToToast.Toaster
                 return;
             }
 
-            var threshold = DateTime.UtcNow.AddDays(-days);
+            var threshold = DateTime.UtcNow.Subtract(time);
             foreach (string file in Directory.EnumerateFiles(tempPath))
             {
                 FileInfo fi = new FileInfo(file);
