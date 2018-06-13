@@ -6,7 +6,7 @@
 </auto-generated>
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="69141597-0065-4998-810f-ff24a0ad7448" Name="GrowlToToast" Language="1033" Codepage="Windows-1252" Version="2.0.0.0" UpgradeCode="69141597-0065-4998-810f-ff2480ad7447" Manufacturer="BobVul">
+  <Product Id="69141597-0065-4998-810f-ff24a0ad8448" Name="GrowlToToast" Language="1033" Codepage="Windows-1252" Version="2.0.1.0" UpgradeCode="69141597-0065-4998-810f-ff2480ad7447" Manufacturer="BobVul">
     <Package InstallerVersion="200" Compressed="yes" SummaryCodepage="Windows-1252" Languages="1033" InstallScope="perMachine" />
     <Media Id="1" Cabinet="GrowlToToast.cab" EmbedCab="yes" />
 
@@ -93,6 +93,14 @@
 
           <Directory Id="INSTALLDIR.Toaster" Name="Toaster">
 
+            <Component Id="Component.CommandLine.dll" Guid="69141597-0065-4998-810f-ff24e9d277ea">
+              <File Id="CommandLine.dll" Source="..\build\Release\Toaster\CommandLine.dll" />
+            </Component>
+
+            <Component Id="Component.CommandLine.xml" Guid="69141597-0065-4998-810f-ff24bf215bce">
+              <File Id="CommandLine.xml" Source="..\build\Release\Toaster\CommandLine.xml" />
+            </Component>
+
             <Component Id="Component.GrowlToToast.Bread.dll.1" Guid="69141597-0065-4998-810f-ff2483c74351">
               <File Id="GrowlToToast.Bread.dll.1" Source="..\build\Release\Toaster\GrowlToToast.Bread.dll" />
             </Component>
@@ -103,7 +111,7 @@
 
             <Component Id="Component.GrowlToToast.Toaster.exe" Guid="69141597-0065-4998-810f-ff24fb2a9bd3">
               <File Id="GrowlToToast.Toaster.exe" Source="..\build\Release\Toaster\GrowlToToast.Toaster.exe">
-                <Shortcut Id="Shortcut.GrowlToToast.Toaster.exe.GrowlToToast.Shortcut.Toaster" WorkingDirectory="INSTALLDIR.Toaster" Directory="ProgramMenuFolder.GrowlToToast" Name="Toaster.lnk">
+                <Shortcut Id="Shortcut.GrowlToToast.Toaster.exe.GrowlToToast.Shortcut.Toaster" WorkingDirectory="INSTALLDIR.Toaster" Directory="ProgramMenuFolder.GrowlToToast" Name="GrowlToToast.Toaster.lnk">
                   <ShortcutProperty Key="System.AppUserModel.ID" Value="GrowlToToast.Toaster" />
                 </Shortcut>
               </File>
@@ -143,6 +151,30 @@
 
             <Component Id="Component._...nsExtensions.Win10.NETCore.xml" Guid="69141597-0065-4998-810f-ff248be790f2">
               <File Id="_...nsExtensions.Win10.NETCore.xml" Source="..\build\Release\Toaster\NotificationsExtensions.Win10.NETCore.xml" />
+            </Component>
+
+            <Component Id="Component.Serilog.dll" Guid="69141597-0065-4998-810f-ff24d7685ce2">
+              <File Id="Serilog.dll" Source="..\build\Release\Toaster\Serilog.dll" />
+            </Component>
+
+            <Component Id="Component.Serilog.pdb" Guid="69141597-0065-4998-810f-ff241c1ad32c">
+              <File Id="Serilog.pdb" Source="..\build\Release\Toaster\Serilog.pdb" />
+            </Component>
+
+            <Component Id="Component._...rilog.Settings.AppSettings.dll" Guid="69141597-0065-4998-810f-ff243540c781">
+              <File Id="_...rilog.Settings.AppSettings.dll" Source="..\build\Release\Toaster\Serilog.Settings.AppSettings.dll" />
+            </Component>
+
+            <Component Id="Component.Serilog.Sinks.File.dll" Guid="69141597-0065-4998-810f-ff2474907b3e">
+              <File Id="Serilog.Sinks.File.dll" Source="..\build\Release\Toaster\Serilog.Sinks.File.dll" />
+            </Component>
+
+            <Component Id="Component.Serilog.Sinks.File.xml" Guid="69141597-0065-4998-810f-ff241753f0d9">
+              <File Id="Serilog.Sinks.File.xml" Source="..\build\Release\Toaster\Serilog.Sinks.File.xml" />
+            </Component>
+
+            <Component Id="Component.Serilog.xml" Guid="69141597-0065-4998-810f-ff2418e378fe">
+              <File Id="Serilog.xml" Source="..\build\Release\Toaster\Serilog.xml" />
             </Component>
 
             <Component Id="Component.Windows.Data.winmd" Guid="69141597-0065-4998-810f-ff2468a4aca9">
@@ -203,6 +235,8 @@
       <ComponentRef Id="Component.Ookii.Dialogs.Wpf.xml" />
       <ComponentRef Id="Component.PropertyChanged.dll" />
       <ComponentRef Id="Component.PropertyChanged.xml" />
+      <ComponentRef Id="Component.CommandLine.dll" />
+      <ComponentRef Id="Component.CommandLine.xml" />
       <ComponentRef Id="Component.GrowlToToast.Bread.dll.1" />
       <ComponentRef Id="Component.GrowlToToast.Bread.pdb.1" />
       <ComponentRef Id="Component.GrowlToToast.Toaster.exe" />
@@ -214,6 +248,12 @@
       <ComponentRef Id="Component._...nsExtensions.Win10.NETCore.dll" />
       <ComponentRef Id="Component._...nsExtensions.Win10.NETCore.pdb" />
       <ComponentRef Id="Component._...nsExtensions.Win10.NETCore.xml" />
+      <ComponentRef Id="Component.Serilog.dll" />
+      <ComponentRef Id="Component.Serilog.pdb" />
+      <ComponentRef Id="Component._...rilog.Settings.AppSettings.dll" />
+      <ComponentRef Id="Component.Serilog.Sinks.File.dll" />
+      <ComponentRef Id="Component.Serilog.Sinks.File.xml" />
+      <ComponentRef Id="Component.Serilog.xml" />
       <ComponentRef Id="Component.Windows.Data.winmd" />
       <ComponentRef Id="Component.Windows.UI.winmd" />
       <ComponentRef Id="GrowlToToast.1.EmptyDirectory" />
