@@ -1,5 +1,12 @@
 # Change Log
 
+## [v2.0.1](https://github.com/BobVul/GrowlToToast/tree/v2.0.1) (2018-06-13)
+[Full Changelog](https://github.com/BobVul/GrowlToToast/compare/v2.0...v2.0.1)
+
+**Implemented enhancements:**
+
+- More detailed logging for Toaster, and debug logging option [\#23](https://github.com/BobVul/GrowlToToast/issues/23)
+
 ## [v2.0](https://github.com/BobVul/GrowlToToast/tree/v2.0) (2018-01-31)
 [Full Changelog](https://github.com/BobVul/GrowlToToast/compare/v0.2a3...v2.0)
 
