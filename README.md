@@ -17,6 +17,10 @@ Implements a Growl Display with a companion program to forward them to Windows 1
 4. Run the "GrowlerInstaller" application. You can run this from the shortcut in your Start Menu, under the GrowlToToast folder. This will add the actual plugin to Growl. In most cases, simply installing it under the "Current User" location will be enough.
 5. Start Growl and enable the display in the Growl settings.
 
+## Development notes
+
+* CommandLineParser is installed with `Install-Package CommandLineParser -IgnoreDependencies since [it currently pulls in a large number of useless core libraries](https://github.com/commandlineparser/commandline/issues/227).
+
 ----
 
 Written for [a SuperUser question](http://superuser.com/questions/1039396/how-do-i-get-growl-for-windows-to-use-native-windows-8-10-notifications).
