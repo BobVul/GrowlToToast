@@ -82,15 +82,15 @@ namespace GrowlToToast.Toaster
                         {
                             TitleText = new ToastText()
                             {
-                                Text = bread.Title
+                                Text = FilterText(bread.Title)
                             },
                             BodyTextLine1 = new ToastText()
                             {
-                                Text = bread.Body
+                                Text = FilterText(bread.Body)
                             },
                             BodyTextLine2 = new ToastText()
                             {
-                                Text = bread.AppName,
+                                Text = FilterText(bread.AppName),
                             }
                         }
                     };
@@ -167,6 +167,24 @@ namespace GrowlToToast.Toaster
             } while (File.Exists(tempImagePath));
             
             return tempImagePath;
+        }
+
+        private static string FilterText(string text)
+        {
+            if (text == null)
+            {
+                return null;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in text)
+            {
+                if (!Char.IsControl(c) || Char.IsWhiteSpace(c))
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
         }
     }
 }
