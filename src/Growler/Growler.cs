@@ -95,15 +95,23 @@ namespace GrowlToToast.Growler
 
         private void LaunchToaster(Message bread)
         {
+            ProcessStartInfo psi = new ProcessStartInfo()
+            {
+                RedirectStandardInput = true,
+                UseShellExecute = false,
+                FileName = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"toasterpath")),
+            };
+
+            if (this.GetSettingOrDefault<bool>(GrowlerSetting.DebugLogging, false))
+            {
+                psi.Arguments += " --loglevel-debug";
+            }
+
             Process p = new Process()
             {
-                StartInfo = new ProcessStartInfo()
-                {
-                    RedirectStandardInput = true,
-                    UseShellExecute = false,
-                    FileName = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"toasterpath"))
-                }
+                StartInfo = psi
             };
+
             p.Start();
             p.StandardInput.WriteLine(JsonConvert.SerializeObject(bread));
             p.StandardInput.Flush();

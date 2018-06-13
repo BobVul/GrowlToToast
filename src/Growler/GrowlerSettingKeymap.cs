@@ -12,6 +12,7 @@ namespace GrowlToToast.Growler
             { GrowlerSetting.IgnoreClose, "ignore_close" },
             { GrowlerSetting.ShowAppName, "show_app_name" },
             { GrowlerSetting.PersistNotifications, "persist_notifications" },
+            { GrowlerSetting.DebugLogging, "debug_logging" },
         };
 
         public static string GetKey(GrowlerSetting setting)

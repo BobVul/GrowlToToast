@@ -1,6 +1,8 @@
-﻿using GrowlToToast.Bread;
+﻿using CommandLine;
+using GrowlToToast.Bread;
 using Newtonsoft.Json;
 using NotificationsExtensions.Toasts;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
@@ -16,83 +18,120 @@ namespace GrowlToToast.Toaster
     static class Program
     {
         private const string APP_ID = "GrowlToToast.Toaster";
+        private static string logPath;
 
-        static void Main()
+        static void Main(string[] args)
         {
-            try
+            var result = Parser.Default.ParseArguments<Options>(args);
+
+            result.WithParsed(options =>
             {
-                Message bread = JsonConvert.DeserializeObject<Message>(Console.ReadLine());
-                switch (bread.Action)
+                var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                logPath = Path.Combine(localAppData, "GrowlToToast", "Toaster.log");
+
+                var logConfig = new LoggerConfiguration()
+                    .WriteTo.File(logPath, rollingInterval: RollingInterval.Month, rollOnFileSizeLimit: true, shared: true);
+
+                if (options.DebugLogging)
                 {
-                    case ActionType.CloseAll:
-                        ToastNotificationManager.History.Clear();
-                        break;
-
-                    case ActionType.CloseLast:
-                        ToastNotificationManager.History.Remove(ToastNotificationManager.History.GetHistory().Last().Tag);
-                        break;
-
-                    case ActionType.Show:
-                        ToastContent content = new ToastContent()
-                        {
-                            Visual = new ToastVisual()
-                            {
-                                TitleText = new ToastText()
-                                {
-                                    Text = bread.Title
-                                },
-                                BodyTextLine1 = new ToastText()
-                                {
-                                    Text = bread.Body
-                                },
-                                BodyTextLine2 = new ToastText()
-                                {
-                                    Text = bread.AppName,
-                                }
-                            }
-                        };
-
-                        if (bread.Image != null)
-                        {
-                            string imagePath = GetTempImagePath(".png");
-                            bread.Image.Save(imagePath, ImageFormat.Png);
-                            content.Visual.AppLogoOverride = new ToastAppLogo
-                            {
-                                Source = new ToastImageSource("file:///" + imagePath)
-                            };
-                        }
-
-                        if (bread.Silent)
-                        {
-                            content.Audio = new ToastAudio()
-                            {
-                                Silent = true
-                            };
-                        }
-
-                        if (bread.PersistNotifications)
-                        {
-                            content.ActivationType = ToastActivationType.Background;
-                        }
-
-                        XmlDocument doc = new XmlDocument();
-                        doc.LoadXml(content.GetContent());
-                        ToastNotification toast = new ToastNotification(doc);
-                        // too long for a tag?
-                        //toast.Tag = Guid.NewGuid().ToString();
-
-                        ToastNotificationManager.CreateToastNotifier(APP_ID).Show(toast);
-                        break;
+                    logConfig
+                        .MinimumLevel.Debug();
                 }
 
-                ClearOldImages(TimeSpan.FromDays(30));
-            }
-            catch (Exception ex)
+                Log.Logger = logConfig
+                    .CreateLogger();
+
+                try
+                {
+                    ShowToast();
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show($"GrowlToToast encountered an error. See log at {Path.GetDirectoryName(logPath)} for details\r\n\r\n{ex.ToString()}", "GrowlToToast error");
+                    Log.Error(ex, "Encountered exception, quitting");
+                }
+                finally
+                {
+                    Log.CloseAndFlush();
+                }
+            });
+        }
+
+        private static void ShowToast()
+        {
+            string input = Console.ReadLine();
+            Log.Debug("Received \"{Input}\"", input);
+            
+            Message bread = JsonConvert.DeserializeObject<Message>(input);
+            Log.Debug("Deserialized {@Message}", bread);
+
+            switch (bread.Action)
             {
-                System.Windows.Forms.MessageBox.Show($"GrowlToToast encountered an error. Details saved to {Path.GetFullPath("GrowlToToast.Toaster.log")}\r\n\r\n{ex.ToString()}", "GrowlToToast error");
-                File.AppendAllText("GrowlToToast.Toaster.log", ex.ToString());
-                throw;
+                case ActionType.CloseAll:
+                    ToastNotificationManager.History.Clear();
+                    break;
+
+                case ActionType.CloseLast:
+                    ToastNotificationManager.History.Remove(ToastNotificationManager.History.GetHistory().Last().Tag);
+                    break;
+
+                case ActionType.Show:
+                    ToastContent content = new ToastContent()
+                    {
+                        Visual = new ToastVisual()
+                        {
+                            TitleText = new ToastText()
+                            {
+                                Text = bread.Title
+                            },
+                            BodyTextLine1 = new ToastText()
+                            {
+                                Text = bread.Body
+                            },
+                            BodyTextLine2 = new ToastText()
+                            {
+                                Text = bread.AppName,
+                            }
+                        }
+                    };
+
+                    if (bread.Image != null)
+                    {
+                        string imagePath = GetTempImagePath(".png");
+                        bread.Image.Save(imagePath, ImageFormat.Png);
+                        content.Visual.AppLogoOverride = new ToastAppLogo
+                        {
+                            Source = new ToastImageSource("file:///" + imagePath)
+                        };
+                    }
+
+                    if (bread.Silent)
+                    {
+                        content.Audio = new ToastAudio()
+                        {
+                            Silent = true
+                        };
+                    }
+
+                    if (bread.PersistNotifications)
+                    {
+                        content.ActivationType = ToastActivationType.Background;
+                    }
+
+                    Log.Debug("Creating {NotificationXml}", content.GetContent());
+
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(content.GetContent());
+
+                    ToastNotification toast = new ToastNotification(doc);
+                    // too long for a tag?
+                    //toast.Tag = Guid.NewGuid().ToString();
+
+                    ToastNotificationManager.CreateToastNotifier(APP_ID).Show(toast);
+                    break;
             }
+
+            ClearOldImages(TimeSpan.FromDays(30));
         }
 
         private static void ClearOldImages(TimeSpan time)

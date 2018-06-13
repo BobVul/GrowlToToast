@@ -32,6 +32,7 @@
             this.checkBoxIgnoreClose = new System.Windows.Forms.CheckBox();
             this.checkBoxShowAppName = new System.Windows.Forms.CheckBox();
             this.checkBoxPersistNotifications = new System.Windows.Forms.CheckBox();
+            this.checkBoxDebugLogging = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBoxSilent
@@ -78,10 +79,22 @@
             this.checkBoxPersistNotifications.UseVisualStyleBackColor = true;
             this.checkBoxPersistNotifications.CheckedChanged += new System.EventHandler(this.checkBoxPersistNotifications_CheckedChanged);
             // 
+            // checkBoxDebugLogging
+            // 
+            this.checkBoxDebugLogging.AutoSize = true;
+            this.checkBoxDebugLogging.Location = new System.Drawing.Point(14, 111);
+            this.checkBoxDebugLogging.Name = "checkBoxDebugLogging";
+            this.checkBoxDebugLogging.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxDebugLogging.TabIndex = 4;
+            this.checkBoxDebugLogging.Text = "Enable debug logging";
+            this.checkBoxDebugLogging.UseVisualStyleBackColor = true;
+            this.checkBoxDebugLogging.CheckedChanged += new System.EventHandler(this.checkBoxDebugLogging_CheckedChanged);
+            // 
             // GrowlerSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBoxDebugLogging);
             this.Controls.Add(this.checkBoxPersistNotifications);
             this.Controls.Add(this.checkBoxShowAppName);
             this.Controls.Add(this.checkBoxIgnoreClose);
@@ -99,5 +112,6 @@
         private System.Windows.Forms.CheckBox checkBoxIgnoreClose;
         private System.Windows.Forms.CheckBox checkBoxShowAppName;
         private System.Windows.Forms.CheckBox checkBoxPersistNotifications;
+        private System.Windows.Forms.CheckBox checkBoxDebugLogging;
     }
 }
