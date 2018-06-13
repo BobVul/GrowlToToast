@@ -6,7 +6,7 @@
 </auto-generated>
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="69141597-0065-4998-810f-ff24a0ad8448" Name="GrowlToToast" Language="1033" Codepage="Windows-1252" Version="2.0.1.0" UpgradeCode="69141597-0065-4998-810f-ff2480ad7447" Manufacturer="BobVul">
+  <Product Id="69141597-0065-4998-810f-ff24a0ad9448" Name="GrowlToToast" Language="1033" Codepage="Windows-1252" Version="2.0.2.0" UpgradeCode="69141597-0065-4998-810f-ff2480ad7447" Manufacturer="BobVul">
     <Package InstallerVersion="200" Compressed="yes" SummaryCodepage="Windows-1252" Languages="1033" InstallScope="perMachine" />
     <Media Id="1" Cabinet="GrowlToToast.cab" EmbedCab="yes" />
 
