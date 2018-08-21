@@ -62,11 +62,11 @@
     <Compile Include="..\src\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
+    <None Include="packages.config" />
     <None Include="wix\$(ProjectName).g.wxs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <!--   <ItemGroup>
     <PackageReference Include="WixSharp">
@@ -74,13 +74,6 @@
     </PackageReference>
   </ItemGroup> -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\WixSharp.1.5.0.0\build\WixSharp.targets" Condition="Exists('..\packages\WixSharp.1.5.0.0\build\WixSharp.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\WixSharp.1.5.0.0\build\WixSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WixSharp.1.5.0.0\build\WixSharp.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -88,5 +81,12 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Project="..\packages\WixSharp.1.5.0.0\build\WixSharp.targets" Condition="Exists('..\packages\WixSharp.1.5.0.0\build\WixSharp.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\WixSharp.1.5.0.0\build\WixSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WixSharp.1.5.0.0\build\WixSharp.targets'))" />
+  </Target>
   <UsingTask AssemblyFile="$(SolutionDir)packages\WixSharp.1.5.0.0\build\SetEnvVar.dll" TaskName="SetEnvVar" />
 </Project>
