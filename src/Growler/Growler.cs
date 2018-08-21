@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Reflection;
 using System.Text;
 
@@ -95,26 +96,47 @@ namespace GrowlToToast.Growler
 
         private void LaunchToaster(Message bread)
         {
-            ProcessStartInfo psi = new ProcessStartInfo()
+            using (var server = new AnonymousPipeServerStream(PipeDirection.Out, HandleInheritability.Inheritable))
             {
-                RedirectStandardInput = true,
-                UseShellExecute = false,
-                FileName = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"toasterpath")),
-            };
+                ProcessStartInfo psi = new ProcessStartInfo()
+                {
+                    RedirectStandardInput = true,
+                    UseShellExecute = false,
+                    FileName = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"toasterpath")),
+                };
 
-            if (this.GetSettingOrDefault<bool>(GrowlerSetting.DebugLogging, false))
-            {
-                psi.Arguments += " --loglevel-debug";
+                psi.Arguments += $" --pipe-id={server.GetClientHandleAsString()}";
+
+                if (this.GetSettingOrDefault<bool>(GrowlerSetting.DebugLogging, false))
+                {
+                    psi.Arguments += " --loglevel-debug";
+                }
+
+                Process p = new Process()
+                {
+                    StartInfo = psi
+                };
+
+                p.Start();
+
+                server.DisposeLocalCopyOfClientHandle();
+
+                try
+                {
+                    using (var writer = new StreamWriter(server))
+                    {
+                        string json = JsonConvert.SerializeObject(bread);
+                        writer.Write(json);
+                        writer.Flush();
+                    }
+                    server.WaitForPipeDrain();
+                }
+                catch (IOException ex)
+                {
+                    // Growler doesn't have logging (yet?)
+                    System.Windows.Forms.MessageBox.Show($"Pipe to Toaster broken, {ex}");
+                }
             }
-
-            Process p = new Process()
-            {
-                StartInfo = psi
-            };
-
-            p.Start();
-            p.StandardInput.WriteLine(JsonConvert.SerializeObject(bread));
-            p.StandardInput.Flush();
         }
 
         private string Base64Encode(string text)

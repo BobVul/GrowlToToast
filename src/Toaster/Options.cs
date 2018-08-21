@@ -11,5 +11,8 @@ namespace GrowlToToast.Toaster
     {
         [Option('v', "loglevel-debug", HelpText = "Enable debug logging.")]
         public bool DebugLogging { get; set; }
+
+        [Option('p', "pipe-id", HelpText = "Retrieve the message from this anonymous pipe")]
+        public string AnonymousPipeClientId { get; set; }
     }
 }

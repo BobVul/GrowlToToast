@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,8 @@ namespace GrowlToToast.Toaster
 
                 try
                 {
-                    ShowToast();
+                    Message bread = GetMessage(options);
+                    ShowToast(bread);
                 }
                 catch (Exception ex)
                 {
@@ -57,14 +59,8 @@ namespace GrowlToToast.Toaster
             });
         }
 
-        private static void ShowToast()
+        private static void ShowToast(Message bread)
         {
-            string input = Console.ReadLine();
-            Log.Debug("Received \"{Input}\"", input);
-            
-            Message bread = JsonConvert.DeserializeObject<Message>(input);
-            Log.Debug("Deserialized {@Message}", bread);
-
             switch (bread.Action)
             {
                 case ActionType.CloseAll:
@@ -132,6 +128,32 @@ namespace GrowlToToast.Toaster
             }
 
             ClearOldImages(TimeSpan.FromDays(30));
+        }
+
+        private static Message GetMessage(Options options)
+        {
+            string json;
+            if (options.AnonymousPipeClientId == null)
+            {
+                json = Console.ReadLine();
+            }
+            else
+            {
+                using (var client = new AnonymousPipeClientStream(PipeDirection.In, options.AnonymousPipeClientId))
+                {
+                    using (var reader = new StreamReader(client))
+                    {
+                        json = reader.ReadToEnd();
+                    }
+                }
+            }
+
+            Log.Debug("Received \"{Json}\"", json);
+
+            Message bread = JsonConvert.DeserializeObject<Message>(json);
+            Log.Debug("Deserialized {@Message}", bread);
+
+            return bread;
         }
 
         private static void ClearOldImages(TimeSpan time)
