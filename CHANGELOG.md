@@ -3,9 +3,9 @@
 ## [v2.0.3](https://github.com/BobVul/GrowlToToast/tree/v2.0.3) (2018-08-21)
 [Full Changelog](https://github.com/BobVul/GrowlToToast/compare/v2.0.2...v2.0.3)
 
-**Fixed bugs:**
+**Implemented enhancements:**
 
-- UTF8 encoding [\#24](https://github.com/BobVul/GrowlToToast/issues/24)
+- Support non-English languages \(Unicode\) [\#24](https://github.com/BobVul/GrowlToToast/issues/24)
 
 **Closed issues:**
 
