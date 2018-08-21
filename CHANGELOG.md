@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.0.3](https://github.com/BobVul/GrowlToToast/tree/v2.0.3) (2018-08-21)
+[Full Changelog](https://github.com/BobVul/GrowlToToast/compare/v2.0.2...v2.0.3)
+
+**Fixed bugs:**
+
+- UTF8 encoding [\#24](https://github.com/BobVul/GrowlToToast/issues/24)
+
+**Closed issues:**
+
+- More reliable message passing [\#9](https://github.com/BobVul/GrowlToToast/issues/9)
+
 ## [v2.0.2](https://github.com/BobVul/GrowlToToast/tree/v2.0.2) (2018-06-13)
 [Full Changelog](https://github.com/BobVul/GrowlToToast/compare/v2.0.1...v2.0.2)
 
